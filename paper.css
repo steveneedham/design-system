@@ -1,0 +1,115 @@
+/* ==========================================================================
+   paper.css — Ops & Systems design system, "paper" (light/print) theme
+   github.com/steveneedham/design-system
+
+   This is a TOKEN-OVERRIDE file, not a parallel stylesheet. Every component
+   rule in styles.css (.nav, .hero, .stop, .footer, etc.) already reads color
+   through the base tokens (--ink, --text, --amber, --teal, ...) or their
+   semantic aliases (--surface-page, --text-primary, --accent-ops, ...).
+   Overriding just the token layer here is enough to re-skin the whole site —
+   no component selectors are duplicated or redefined.
+
+   USAGE
+   -----
+   1. Load AFTER styles.css:
+        <link rel="stylesheet" href="styles.css">
+        <link rel="stylesheet" href="paper.css">
+
+   2. Opt in per-page/per-element with a data-theme attribute (recommended
+      on <html> so it wins the cascade everywhere):
+        <html data-theme="paper">
+
+   3. No JS required for print — the @media print block at the bottom
+      applies the same paper tokens automatically any time the dark site
+      is printed, whether or not data-theme is set.
+
+   4. Optional theme toggle (vanilla JS), if/when a toggle button is added
+      to the site nav:
+        document.documentElement.toggleAttribute('data-theme', ...)
+        document.documentElement.setAttribute('data-theme', 'paper');
+        // to revert: document.documentElement.removeAttribute('data-theme');
+
+   DESIGN NOTES
+   ------------
+   - Amber/teal are NOT reused at their dark-surface values here. At
+     full saturation (#E8A33D / #4FD1C5) both fail contrast as text or
+     small dots against a light background. Paper mode uses deepened
+     "ink-safe" versions of each hue instead, so labels/dots/links stay
+     legible without breaking the amber=ops / teal=sys convention.
+   - The dim variants flip direction on purpose: on the dark surface,
+     "-dim" means darker/closer to the ink background (subtler). On
+     paper, subtler means closer to the *paper* background instead, so
+     the dim variants are light tints, not dark ones. Same intent
+     ("recede toward the surface"), opposite direction, because the
+     surface itself flipped.
+   - --text on paper reuses the original --ink hex (#14171C) — the old
+     background becomes the new foreground. Keeps a nice conceptual
+     symmetry between the two themes and guarantees max contrast.
+   ========================================================================== */
+
+:root[data-theme="paper"]{
+  /* Surfaces */
+  --ink:#F6F3EC;          /* was dark bg → now paper bg */
+  --panel:#EFEAE0;        /* secondary surface (signal strip, panels) */
+  --panel-line:#DCD5C4;   /* borders/dividers on paper */
+
+  /* Text */
+  --text:#14171C;         /* old --ink hex reused as primary text */
+  --muted:#5B6270;        /* old --muted-dim hex reused as secondary text */
+  --muted-dim:#9CA3AF;    /* new tertiary — lighter, recedes toward paper bg */
+
+  /* Accents — deepened for AA-ish contrast on a light surface */
+  --amber:#B5791F;        /* ops, text/dot-safe on paper */
+  --amber-dim:#E0C38F;    /* ops, subtle border/tint (light, not dark) */
+  --teal:#1F8478;         /* sys, text/dot-safe on paper */
+  --teal-dim:#A9E1D9;     /* sys, subtle border/tint (light, not dark) */
+
+  /* Semantic aliases resolve automatically via styles.css's :root chain
+     (--surface-page: var(--ink), --text-primary: var(--text), etc.) —
+     nothing further to override. --focus-ring inherits the new --amber. */
+}
+
+/* Sticky nav uses a translucent ink background at 72% opacity in the base
+   theme; on paper that reads as a dark smear over light content, so give
+   it an explicit translucent paper fill instead of relying on --ink alone. */
+:root[data-theme="paper"] .nav{
+  background:rgba(246,243,236,0.86);
+}
+
+/* Hero video scrim is tuned for a dark backdrop; soften it on paper so
+   video content doesn't fight a light theme with a dark overlay. */
+:root[data-theme="paper"] .hero-scrim{
+  background:rgba(246,243,236,0.55);
+}
+
+/* ==========================================================================
+   Print
+   ========================================================================== */
+@media print{
+  :root{
+    --ink:#FFFFFF;
+    --panel:#F3F1EA;
+    --panel-line:#D9D2C0;
+
+    --text:#14171C;
+    --muted:#5B6270;
+    --muted-dim:#7C8290;
+
+    --amber:#B5791F;
+    --amber-dim:#E0C38F;
+    --teal:#1F8478;
+    --teal-dim:#A9E1D9;
+  }
+
+  /* Kill anything meant only for an interactive/scrolling dark UI. */
+  .nav{ position:static; backdrop-filter:none; -webkit-backdrop-filter:none; }
+  .signal-strip{ display:none; }
+  .hero-video, .hero-scrim{ display:none; }
+  .stop{ opacity:1 !important; transform:none !important; transition:none !important; }
+  .stop::before,
+  .track[data-track="ops"] .stop.is-trending::before,
+  .track[data-track="sys"] .stop.is-trending::before{ animation:none !important; }
+
+  a{ text-decoration:underline; }
+  .stop-link, .footer-links a{ text-decoration:none; border-bottom:1px solid currentColor; }
+}
