@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.2.0 — 2026-07-26
+
+- Completed the visual specimen inventory for every documented component layer.
+- Added a first-class voice-and-tone standard.
+- Added mobile table wrapping for document specimens.
+
 ## 1.1.0 — 2026-07-26
 
 - Added complete portfolio icon and lockup inventory.

@@ -64,6 +64,8 @@
   .metadata-band{grid-template-columns:1fr}
   .metadata-band > div + div{border-left:0;border-top:1px solid var(--border-default)}
   .signature-grid{grid-template-columns:1fr}
+  .document-table{table-layout:fixed}
+  .document-table th,.document-table td{overflow-wrap:anywhere}
 }
 @media print{
   .document{max-width:none;padding:0}

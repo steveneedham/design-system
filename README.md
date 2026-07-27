@@ -46,6 +46,7 @@ Paper surface:
 - `guidelines/components.html` — interactive component specimens
 - `guidelines/brand-architecture.md` — identity and sub-brand boundaries
 - `guidelines/media.md` — photography, motion, and accessibility rules
+- `guidelines/voice-and-tone.md` — editorial voice, contextual tone, and review
 - `guidelines/office.md` — Word and PowerPoint translation
 - `SKILL.md` — voice, editorial philosophy, and implementation guidance
 
