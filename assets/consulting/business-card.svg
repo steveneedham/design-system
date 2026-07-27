@@ -1,0 +1,39 @@
+<svg width="2160" height="600" viewBox="0 0 2160 600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;1,9..144,500&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap');
+      .word-dark { font-family:'Fraunces', serif; font-weight:500; fill:#EDEAE2; }
+      .word-light { font-family:'Fraunces', serif; font-weight:500; fill:#1f2428; }
+      .mono-amber { font-family:'JetBrains Mono', monospace; font-weight:500; fill:#E8A33D; letter-spacing:3px; }
+      .mono-teal { font-family:'JetBrains Mono', monospace; font-weight:500; fill:#0e7c66; letter-spacing:3px; }
+      .mono-muted-d { font-family:'JetBrains Mono', monospace; font-weight:400; fill:#EDEAE2; fill-opacity:0.7; }
+      .mono-muted-l { font-family:'JetBrains Mono', monospace; font-weight:400; fill:#1f2428; fill-opacity:0.65; }
+    </style>
+  </defs>
+
+  <!-- ===== FRONT — dark ===== -->
+  <rect x="0" y="0" width="1050" height="600" fill="#14171C"/>
+  <g transform="translate(70,70)">
+    <path d="M8,92 L48,58 L70,74 L100,20" fill="none" stroke="#EDEAE2" stroke-opacity="0.45" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="48" cy="58" r="6" fill="#E8A33D"/>
+    <circle cx="70" cy="74" r="6" fill="#4FD1C5"/>
+    <circle cx="100" cy="20" r="9" fill="none" stroke="#EDEAE2" stroke-width="2.25"/>
+  </g>
+  <text x="70" y="280" class="word-dark" font-size="48">Steven Needham</text>
+  <text x="70" y="320" class="mono-amber" font-size="14">URBAN STRATEGIST</text>
+
+  <line x1="70" y1="450" x2="980" y2="450" stroke="#282E38" stroke-width="1"/>
+  <text x="70" y="490" class="mono-muted-d" font-size="16">sjneedham@icloud.com</text>
+  <text x="70" y="516" class="mono-muted-d" font-size="16">linkedin.com/in/steveneedham · github.com/steveneedham</text>
+  <text x="70" y="542" class="mono-muted-d" font-size="16">Columbus, Ohio</text>
+
+  <!-- ===== BACK — paper ===== -->
+  <rect x="1110" y="0" width="1050" height="600" fill="#faf9f6"/>
+  <g transform="translate(1585,220)">
+    <path d="M8,92 L48,58 L70,74 L100,20" fill="none" stroke="#1f2428" stroke-opacity="0.3" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="48" cy="58" r="6" fill="#E8A33D"/>
+    <circle cx="70" cy="74" r="6" fill="#0e7c66"/>
+    <circle cx="100" cy="20" r="9" fill="none" stroke="#1f2428" stroke-width="2.25"/>
+  </g>
+  <text x="1635" y="420" text-anchor="middle" class="mono-teal" font-size="13">OPS · SYSTEMS · CIVIC TECH</text>
+</svg>

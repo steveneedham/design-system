@@ -1,0 +1,25 @@
+:root {
+  --space-page-x: clamp(1.5rem, 8vw, 6rem);
+  --space-nav-x: clamp(1.5rem, 5vw, 4rem);
+  --space-track-gap: clamp(1.5rem, 5vw, 4rem);
+  --space-hero-top: 8rem;
+  --space-hero-bottom: 4rem;
+  --space-stop-gap: 2.6rem;
+  --space-section-gap: 2rem;
+  --radius-sm: 3px;
+  --border-width: 1px;
+  --motion-fast: 0.2s ease;
+  --motion-slow: 0.6s ease;
+  --blur-nav: 10px;
+  --measure-reading: 68ch;
+  --measure-editorial: 72rem;
+  --space-document-x: clamp(1.25rem, 6vw, 5rem);
+  --space-document-y: clamp(2rem, 6vw, 4.5rem);
+  --space-table-cell-x: 0.85rem;
+  --space-table-cell-y: 0.7rem;
+  --space-form-response: 3.5rem;
+  --z-base: 0;
+  --z-scrim: 1;
+  --z-content: 2;
+  --z-nav: 50;
+}

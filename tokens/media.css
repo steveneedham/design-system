@@ -1,0 +1,10 @@
+:root {
+  --media-hero-opacity: 0.3;
+  --media-hero-scrim: rgba(20, 23, 28, 0.5);
+  --media-hero-scrim-paper: rgba(246, 243, 236, 0.55);
+  --media-aspect-editorial: 3 / 2;
+  --media-aspect-wide: 16 / 9;
+  --media-aspect-social-banner: 4 / 1;
+  --media-radius-paper: 12px;
+  --media-shadow-paper: 0 6px 18px rgba(0, 0, 0, 0.06);
+}

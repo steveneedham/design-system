@@ -1,0 +1,78 @@
+{
+  "name": "Steven Needham Design System",
+  "version": "1.1.0",
+  "themes": {
+    "dark": {
+      "stylesheet": "../styles.css",
+      "preferredLockup": "icons/lockup-horizontal-dark.svg",
+      "preferredSquareMark": "icons/icon-square-dark.svg"
+    },
+    "paper": {
+      "stylesheets": ["../styles.css", "../paper.css"],
+      "attribute": "data-theme=\"paper\"",
+      "preferredLockup": "icons/lockup-horizontal-light.svg",
+      "preferredSquareMark": "icons/icon-square-light.svg"
+    }
+  },
+  "brandArchitecture": {
+    "primary": {
+      "name": "Steven Needham",
+      "mark": "logo.svg",
+      "use": "Personal portfolio, civic work, public reports, and brand-neutral mobility work."
+    },
+    "consulting": {
+      "name": "Steven Needham — Urban Strategist",
+      "mark": "consulting/urban-strategist-lockups.svg",
+      "use": "Consulting proposals, agreements, client communications, and professional-service collateral.",
+      "restriction": "Do not use the consulting descriptor on organization-neutral public mobility work."
+    }
+  },
+  "brandMarks": [
+    "logo.svg",
+    "icons/logo.svg",
+    "icons/lockup-horizontal-dark.svg",
+    "icons/lockup-horizontal-light.svg",
+    "icons/icon-square-dark.svg",
+    "icons/icon-square-light.svg",
+    "icons/mark-route-pin.svg",
+    "icons/pin-mono-stamp.svg",
+    "icons/pin-favicon.svg",
+    "icons/favicon.svg"
+  ],
+  "consultingMasters": [
+    "consulting/urban-strategist-lockups.svg",
+    "consulting/favicon.svg",
+    "consulting/linkedin-banner.svg",
+    "consulting/business-card.svg",
+    "consulting/email-signature.html"
+  ],
+  "functionalIcons": [
+    "icons/bike.svg",
+    "icons/document-download.svg",
+    "icons/external-link.svg",
+    "icons/map-layer.svg",
+    "icons/network-hubs.svg",
+    "icons/pin.svg",
+    "icons/scooter.svg"
+  ],
+  "socialIcons": [
+    "icons/bluesky.svg",
+    "icons/facebook.svg",
+    "icons/github.svg",
+    "icons/instagram.svg",
+    "icons/linkedin.svg",
+    "icons/linktree.svg",
+    "icons/threads.svg",
+    "icons/tiktok.svg",
+    "icons/whatsapp.svg",
+    "icons/youtube.svg"
+  ],
+  "rules": [
+    "Use dark-named marks on dark surfaces and light-named marks on paper surfaces.",
+    "Keep amber for operations and teal for systems.",
+    "Do not recolor, stretch, rotate, or add effects to a brand mark.",
+    "Use the primary identity for brand-neutral public mobility work.",
+    "Use the Urban Strategist lockup only for Steven Needham consulting materials.",
+    "Project-specific previews, client content, contracts, data, and downloads do not belong in this repository."
+  ]
+}

@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Component specimens — Steven Needham Design System</title>
+  <link rel="icon" href="../assets/icons/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../bundle.css">
+  <link rel="stylesheet" href="../paper.css">
+  <style>
+    .specimen{max-width:72rem;margin:auto;padding:7rem var(--space-page-x)}
+    .specimen-head{max-width:62ch;margin-bottom:4rem}
+    .specimen-head h1{font:500 var(--text-hero)/1.12 var(--font-display);margin:.7rem 0 1rem}
+    .specimen-head p{color:var(--text-muted)}
+    .theme-controls{display:flex;gap:.7rem;margin-top:1.5rem}
+    .theme-controls button{border:1px solid var(--border-default);background:transparent;color:var(--text-primary);padding:.5rem .7rem;border-radius:3px;font:var(--text-mono-xs) var(--font-mono)}
+    .theme-controls button[aria-pressed="true"]{border-color:var(--accent-ops);color:var(--accent-ops)}
+    .specimen-section{padding:3rem 0;border-top:1px solid var(--border-default)}
+    .specimen-section > h2{font:500 var(--text-h2)/1.2 var(--font-display)}
+    .specimen-note{max-width:62ch;color:var(--text-muted);margin-bottom:2rem}
+    .demo-frame{border:1px solid var(--border-default);padding:clamp(1rem,4vw,2.5rem)}
+    .swatch-row{display:flex;flex-wrap:wrap;gap:.7rem}
+    .component-index{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
+    .component-index a{padding:1rem 0;border-top:1px solid var(--border-default);color:var(--text-muted);font:var(--text-mono-xs) var(--font-mono)}
+    @media(max-width:700px){.component-index{grid-template-columns:1fr}}
+    @media print{.theme-controls{display:none}}
+  </style>
+</head>
+<body>
+  <main class="specimen">
+    <header class="specimen-head">
+      <div class="eyebrow">Design system / Components</div>
+      <h1>Reusable structures,<br><em>quietly expressed.</em></h1>
+      <p>Canonical web, case-study, report, form, status, and presentation patterns. Components inherit the same tokens across dark and paper surfaces.</p>
+      <div class="theme-controls" aria-label="Preview surface">
+        <button type="button" data-theme-choice="dark" aria-pressed="true">Dark surface</button>
+        <button type="button" data-theme-choice="paper" aria-pressed="false">Paper surface</button>
+      </div>
+    </header>
+
+    <nav class="component-index" aria-label="Component sections">
+      <a href="#status">Status and metrics</a>
+      <a href="#project">Project evidence</a>
+      <a href="#document">Documents and forms</a>
+      <a href="#presentation">Presentation structures</a>
+      <a href="assets.html">Asset catalog</a>
+      <a href="brand-architecture.md">Brand architecture</a>
+    </nav>
+
+    <section class="specimen-section" id="status">
+      <h2>Status and metrics</h2>
+      <p class="specimen-note">Status always uses a written label and a dot; color is supporting information, never the only signal.</p>
+      <div class="swatch-row">
+        <span class="status" data-status="success">On track</span>
+        <span class="status" data-status="attention">Watch</span>
+        <span class="status" data-status="risk">Blocked</span>
+        <span class="status" data-status="neutral">Not started</span>
+      </div>
+      <div class="kpi-row" style="margin-top:2rem">
+        <article class="kpi" data-status="success"><div class="kpi-label">Completion</div><div class="kpi-value">87%</div><div class="kpi-delta">+4 points from last week</div><div class="kpi-bar" style="--progress:87%"><span></span></div></article>
+        <article class="kpi" data-status="attention"><div class="kpi-label">Open decisions</div><div class="kpi-value">3</div><div class="kpi-delta">Client input requested</div><div class="kpi-bar" style="--progress:50%"><span></span></div></article>
+        <article class="kpi" data-status="risk"><div class="kpi-label">Blocked items</div><div class="kpi-value">1</div><div class="kpi-delta">Data access unresolved</div><div class="kpi-bar" style="--progress:20%"><span></span></div></article>
+      </div>
+    </section>
+
+    <section class="specimen-section" id="project">
+      <h2>Project evidence</h2>
+      <p class="specimen-note">Use a linear evidence flow when a sequence materially clarifies how inputs become operational decisions and outcomes.</p>
+      <article class="evidence">
+        <div class="evidence-index">Evidence 01 · Service response</div>
+        <h3>From public signal to traceable closure</h3>
+        <p class="evidence-problem">A concise problem statement establishes why the system exists and what the reader should evaluate.</p>
+        <div class="evidence-flow" role="list" aria-label="Example evidence flow">
+          <div class="evidence-stage" role="listitem"><small>Problem</small><strong>Uneven reports</strong><p>Inputs arrive with inconsistent detail and location quality.</p></div>
+          <div class="evidence-stage" role="listitem"><small>Input</small><strong>Public feed</strong><p>Category, time, status, location, and narrative.</p></div>
+          <div class="evidence-stage" role="listitem"><small>Process</small><strong>Normalize</strong><p>Clean, validate, group, and document the signal.</p></div>
+          <div class="evidence-stage" data-kind="decision" role="listitem"><small>Decision</small><strong>Prioritize</strong><p>Age, safety, repetition, geography, and capacity.</p></div>
+          <div class="evidence-stage" role="listitem"><small>Output</small><strong>Field list</strong><p>A legible map and queue for coordinated action.</p></div>
+          <div class="evidence-stage" data-kind="outcome" role="listitem"><small>Outcome</small><strong>Closure</strong><p>A faster response with an accountable record.</p></div>
+        </div>
+        <p class="evidence-limits">Limits: every evidence component names uncertainty and preserves the need for field verification.</p>
+      </article>
+    </section>
+
+    <section class="specimen-section" id="document">
+      <h2>Documents and forms</h2>
+      <p class="specimen-note">The document layer translates the web identity into a restrained, print-safe editorial system.</p>
+      <article class="document demo-frame">
+        <header class="document-header">
+          <div class="document-brandline"><span class="document-name">Steven Needham</span><span class="document-descriptor">Urban strategist</span></div>
+          <div class="document-title">Weekly status</div>
+        </header>
+        <dl class="metadata-band" style="--metadata-columns:3">
+          <div><dt>Client</dt><dd>Example organization</dd></div>
+          <div><dt>Week of</dt><dd>July 27, 2026</dd></div>
+          <div><dt>Status</dt><dd data-emphasis="sys">On track</dd></div>
+        </dl>
+        <div class="numbered-heading"><span class="number">01</span><h3>Summary</h3></div>
+        <p>Two or three precise sentences establish what moved, what remains in motion, and what requires attention.</p>
+        <div class="numbered-heading" data-track="sys"><span class="number">02</span><h3>Decision needed</h3></div>
+        <div class="form-prompt"><strong>Who owns the next action?</strong><small>Name the accountable role and expected date.</small></div>
+        <footer class="document-footer"><span>sjneedham@icloud.com · Columbus, Ohio</span><span>Ref: SN–2026–0001</span></footer>
+      </article>
+    </section>
+
+    <section class="specimen-section" id="presentation">
+      <h2>Presentation structures</h2>
+      <p class="specimen-note">Slides use large type, flat composition, strong pacing, and one primary claim per frame.</p>
+      <div class="demo-frame">
+        <div class="eyebrow">Timeline</div>
+        <h3 style="font:500 var(--text-h2) var(--font-display)">Milestones</h3>
+        <div class="milestone-rail" style="--milestones:3;margin-top:4rem">
+          <div class="milestone"><strong>Discovery</strong><br><small>Weeks 1–2</small></div>
+          <div class="milestone" data-track="sys"><strong>Build</strong><br><small>Weeks 3–6</small></div>
+          <div class="milestone"><strong>Delivery</strong><br><small>Week 7</small></div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <script src="../scripts/components.js"></script>
+</body>
+</html>

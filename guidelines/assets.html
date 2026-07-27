@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Asset catalog — Steven Needham Design System</title>
+  <link rel="icon" href="../assets/icons/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="../paper.css">
+  <style>
+    .catalog{padding:clamp(6rem,12vw,9rem) var(--space-page-x) 5rem}
+    .catalog-head{max-width:64rem;margin:0 auto 4rem}
+    .catalog-kicker,.asset-path,.theme-note{
+      font-family:var(--font-mono);font-size:var(--text-mono-xs);
+      letter-spacing:var(--tracking-label)
+    }
+    .catalog-kicker{text-transform:uppercase;color:var(--accent-ops)}
+    .catalog h1{font-family:var(--font-display);font-weight:500;font-size:var(--text-hero);line-height:var(--leading-hero);margin:.8rem 0 1rem}
+    .catalog-intro{max-width:58ch;color:var(--text-muted)}
+    .theme-switch{display:flex;gap:.75rem;margin-top:2rem}
+    .theme-switch button{
+      appearance:none;border:var(--border-width) solid var(--border-default);
+      border-radius:var(--radius-sm);background:transparent;color:var(--text-primary);
+      font:var(--text-mono-sm) var(--font-mono);padding:.55rem .8rem;cursor:pointer
+    }
+    .theme-switch button[aria-pressed="true"]{border-color:var(--accent-ops);color:var(--accent-ops)}
+    .asset-section{max-width:64rem;margin:0 auto 4rem}
+    .asset-section h2{font-family:var(--font-display);font-size:var(--text-h2);font-weight:500;margin:0 0 .5rem}
+    .theme-note{color:var(--text-muted);margin:0 0 1.5rem}
+    .asset-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid var(--border-default)}
+    .asset{
+      min-height:12rem;padding:1.5rem 1.25rem;border-bottom:1px solid var(--border-default);
+      display:flex;flex-direction:column;justify-content:space-between;gap:1.5rem
+    }
+    .asset img{width:100%;height:5rem;object-fit:contain;object-position:left center}
+    .asset.icon img{width:2.5rem;height:2.5rem}
+    .asset-name{font-family:var(--font-display);font-size:var(--text-h3)}
+    .asset-path{color:var(--text-muted);overflow-wrap:anywhere}
+    @media(max-width:760px){.asset-grid{grid-template-columns:1fr 1fr}}
+    @media(max-width:480px){.asset-grid{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+  <main class="catalog">
+    <header class="catalog-head">
+      <div class="catalog-kicker">Foundation / Assets</div>
+      <h1>One visual language,<br><em>two surfaces.</em></h1>
+      <p class="catalog-intro">Canonical marks and functional glyphs for the dark portfolio surface and the warm paper surface. Paths shown below are stable repository paths.</p>
+      <div class="theme-switch" aria-label="Preview surface">
+        <button type="button" data-theme-choice="dark" aria-pressed="true">Dark surface</button>
+        <button type="button" data-theme-choice="paper" aria-pressed="false">Paper surface</button>
+      </div>
+    </header>
+
+    <section class="asset-section">
+      <h2>Identity system</h2>
+      <p class="theme-note">Use the matching dark or light file for its named surface.</p>
+      <div class="asset-grid">
+        <figure class="asset"><img src="../assets/icons/lockup-horizontal-dark.svg" alt="Horizontal Steven Needham lockup for dark surfaces"><figcaption><div class="asset-name">Horizontal / dark</div><div class="asset-path">assets/icons/lockup-horizontal-dark.svg</div></figcaption></figure>
+        <figure class="asset"><img src="../assets/icons/lockup-horizontal-light.svg" alt="Horizontal Steven Needham lockup for paper surfaces"><figcaption><div class="asset-name">Horizontal / paper</div><div class="asset-path">assets/icons/lockup-horizontal-light.svg</div></figcaption></figure>
+        <figure class="asset"><img src="../assets/logo.svg" alt="Route-and-hub logo mark"><figcaption><div class="asset-name">Core route mark</div><div class="asset-path">assets/logo.svg</div></figcaption></figure>
+        <figure class="asset icon"><img src="../assets/icons/icon-square-dark.svg" alt="Square logo for dark surfaces"><figcaption><div class="asset-name">Square / dark</div><div class="asset-path">assets/icons/icon-square-dark.svg</div></figcaption></figure>
+        <figure class="asset icon"><img src="../assets/icons/icon-square-light.svg" alt="Square logo for paper surfaces"><figcaption><div class="asset-name">Square / paper</div><div class="asset-path">assets/icons/icon-square-light.svg</div></figcaption></figure>
+        <figure class="asset icon"><img src="../assets/icons/mark-route-pin.svg" alt="Route pin brand mark"><figcaption><div class="asset-name">Route pin</div><div class="asset-path">assets/icons/mark-route-pin.svg</div></figcaption></figure>
+      </div>
+    </section>
+
+    <section class="asset-section">
+      <h2>Mobility and systems</h2>
+      <p class="theme-note">Hairline functional glyphs preserve the route-and-node drawing language.</p>
+      <div class="asset-grid">
+        <figure class="asset icon"><img src="../assets/icons/bike.svg" alt="Bike icon"><figcaption><div class="asset-name">Bike</div><div class="asset-path">assets/icons/bike.svg</div></figcaption></figure>
+        <figure class="asset icon"><img src="../assets/icons/scooter.svg" alt="Scooter icon"><figcaption><div class="asset-name">Scooter</div><div class="asset-path">assets/icons/scooter.svg</div></figcaption></figure>
+        <figure class="asset icon"><img src="../assets/icons/pin.svg" alt="Location pin icon"><figcaption><div class="asset-name">Location pin</div><div class="asset-path">assets/icons/pin.svg</div></figcaption></figure>
+        <figure class="asset icon"><img src="../assets/icons/map-layer.svg" alt="Map layer icon"><figcaption><div class="asset-name">Map layer</div><div class="asset-path">assets/icons/map-layer.svg</div></figcaption></figure>
+        <figure class="asset icon"><img src="../assets/icons/network-hubs.svg" alt="Network hubs icon"><figcaption><div class="asset-name">Network hubs</div><div class="asset-path">assets/icons/network-hubs.svg</div></figcaption></figure>
+        <figure class="asset icon"><img src="../assets/icons/document-download.svg" alt="Document download icon"><figcaption><div class="asset-name">Document download</div><div class="asset-path">assets/icons/document-download.svg</div></figcaption></figure>
+      </div>
+    </section>
+  </main>
+  <script src="../scripts/components.js"></script>
+</body>
+</html>

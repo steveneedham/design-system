@@ -1,0 +1,14 @@
+:root {
+  --status-success: #4FD1C5;
+  --status-success-ink: #1F8478;
+  --status-success-subtle: rgba(79, 209, 197, 0.15);
+  --status-attention: #E8A33D;
+  --status-attention-ink: #B5791F;
+  --status-attention-subtle: rgba(232, 163, 61, 0.15);
+  --status-risk: #C4795A;
+  --status-risk-ink: #8F5038;
+  --status-risk-subtle: rgba(196, 121, 90, 0.15);
+  --status-neutral: #8B93A1;
+  --status-neutral-ink: #5B6270;
+  --status-neutral-subtle: rgba(139, 147, 161, 0.15);
+}

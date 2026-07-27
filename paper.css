@@ -63,6 +63,10 @@
   --amber-dim:#E0C38F;    /* ops, subtle border/tint (light, not dark) */
   --teal:#1F8478;         /* sys, text/dot-safe on paper */
   --teal-dim:#A9E1D9;     /* sys, subtle border/tint (light, not dark) */
+  --status-success:var(--teal);
+  --status-attention:var(--amber);
+  --status-risk:#8F5038;
+  --status-neutral:#5B6270;
 
   /* Semantic aliases resolve automatically via styles.css's :root chain
      (--surface-page: var(--ink), --text-primary: var(--text), etc.) —
@@ -79,14 +83,15 @@
 /* Hero video scrim is tuned for a dark backdrop; soften it on paper so
    video content doesn't fight a light theme with a dark overlay. */
 :root[data-theme="paper"] .hero-scrim{
-  background:rgba(246,243,236,0.55);
+  background:var(--media-hero-scrim-paper);
 }
 
 /* ==========================================================================
    Print
    ========================================================================== */
 @media print{
-  :root{
+  :root,
+  :root[data-theme="paper"]{
     --ink:#FFFFFF;
     --panel:#F3F1EA;
     --panel-line:#D9D2C0;
@@ -99,6 +104,10 @@
     --amber-dim:#E0C38F;
     --teal:#1F8478;
     --teal-dim:#A9E1D9;
+    --status-success:#1F8478;
+    --status-attention:#B5791F;
+    --status-risk:#8F5038;
+    --status-neutral:#5B6270;
   }
 
   /* Kill anything meant only for an interactive/scrolling dark UI. */

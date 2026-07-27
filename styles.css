@@ -1,76 +1,9 @@
-/* Sourced live from Google Fonts — same CDN the site has always used. */
-@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
-
-:root{
-  /* Dark surface (primary — homepage) */
-  --ink:#14171C;
-  --panel:#1B1F27;
-  --panel-line:#282E38;
-  --amber:#E8A33D;
-  --amber-dim:#7A5B2C;
-  --teal:#4FD1C5;
-  --teal-dim:#2C6A64;
-  --text:#EDEAE2;
-  --muted:#8B93A1;
-  --muted-dim:#5B6270;
-
-  /* Semantic aliases */
-  --surface-page:var(--ink);
-  --border-default:var(--panel-line);
-  --text-primary:var(--text);
-  --text-muted:var(--muted);
-  --text-muted-dim:var(--muted-dim);
-  --accent-ops:var(--amber);
-  --accent-ops-dim:var(--amber-dim);
-  --accent-sys:var(--teal);
-  --accent-sys-dim:var(--teal-dim);
-  --focus-ring:var(--amber);
-
-  --font-display:'Fraunces', serif;
-  --font-body:'Inter', sans-serif;
-  --font-mono:'JetBrains Mono', monospace;
-
-  --text-hero:clamp(2.1rem, 5.4vw, 4.1rem);
-  --text-h2:clamp(1.6rem, 3vw, 2.1rem);
-  --text-h2-footer:clamp(1.5rem, 3vw, 2rem);
-  --text-h3:1.15rem;
-  --text-nav:1.05rem;
-  --text-body-lg:1.05rem;
-  --text-body:1rem;
-  --text-body-sm:0.94rem;
-  --text-mono-md:0.85rem;
-  --text-mono-sm:0.78rem;
-  --text-mono-xs:0.75rem;
-  --text-eyebrow:0.72rem;
-  --text-tag:0.68rem;
-  --text-foot:0.7rem;
-
-  --leading-body:1.6;
-  --leading-hero:1.12;
-  --leading-h2:1.25;
-
-  --tracking-eyebrow:0.14em;
-  --tracking-label:0.1em;
-
-  --weight-regular:400;
-  --weight-medium:500;
-  --weight-semibold:600;
-
-  --space-page-x:clamp(1.5rem, 8vw, 6rem);
-  --space-nav-x:clamp(1.5rem, 5vw, 4rem);
-  --space-track-gap:clamp(1.5rem, 5vw, 4rem);
-  --space-hero-top:8rem;
-  --space-hero-bottom:4rem;
-  --space-stop-gap:2.6rem;
-  --space-section-gap:2rem;
-
-  --radius-sm:3px;
-  --border-width:1px;
-
-  --motion-fast:0.2s ease;
-  --motion-slow:0.6s ease;
-  --blur-nav:10px;
-}
+@import url('./tokens/fonts.css');
+@import url('./tokens/colors.css');
+@import url('./tokens/typography.css');
+@import url('./tokens/spacing.css');
+@import url('./tokens/media.css');
+@import url('./tokens/status.css');
 
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
@@ -85,10 +18,14 @@ body{
 }
 a{color:inherit;text-decoration:none}
 img{display:block;max-width:100%}
+:focus-visible{
+  outline:2px solid var(--focus-ring);
+  outline-offset:4px;
+}
 
 /* ---------- Nav ---------- */
 .nav{
-  position:sticky;top:0;z-index:50;
+  position:sticky;top:0;z-index:var(--z-nav);
   display:flex;align-items:center;justify-content:space-between;
   padding:1.1rem var(--space-nav-x);
   background:rgba(20,23,28,0.72);
@@ -146,28 +83,28 @@ img{display:block;max-width:100%}
 }
 .hero-video{
   position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
-  width:100%;height:100%;object-fit:cover;opacity:0.3;z-index:0;
+  width:100%;height:100%;object-fit:cover;opacity:var(--media-hero-opacity);z-index:var(--z-base);
 }
-.hero-scrim{position:absolute;inset:0;background:rgba(20,23,28,0.5);z-index:1}
+.hero-scrim{position:absolute;inset:0;background:var(--media-hero-scrim);z-index:var(--z-scrim)}
 .hero-eyebrow{
-  position:relative;z-index:2;
+  position:relative;z-index:var(--z-content);
   font-family:var(--font-mono);font-size:var(--text-eyebrow);
   letter-spacing:var(--tracking-eyebrow);text-transform:uppercase;
   color:var(--text-muted);margin-bottom:1.6rem;
 }
 .hero h1{
-  position:relative;z-index:2;
+  position:relative;z-index:var(--z-content);
   font-family:var(--font-display);font-weight:500;
   font-size:var(--text-hero);line-height:var(--leading-hero);
   max-width:15ch;margin:0;
 }
 .hero h1 em{font-style:italic;color:var(--accent-ops)}
 .hero p{
-  position:relative;z-index:2;margin-top:1.8rem;max-width:52ch;
+  position:relative;z-index:var(--z-content);margin-top:1.8rem;max-width:52ch;
   color:var(--text-muted);font-size:var(--text-body-lg);
 }
 .hero-meta{
-  position:relative;z-index:2;margin-top:2.6rem;
+  position:relative;z-index:var(--z-content);margin-top:2.6rem;
   display:flex;gap:2.5rem;flex-wrap:wrap;
   font-family:var(--font-mono);font-size:0.78rem;color:var(--muted-dim);
 }

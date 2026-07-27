@@ -22,9 +22,16 @@ Both repos are plain HTML/CSS/vanilla-JS, no component framework — so the "com
 
 ## Products / surfaces
 
-One product: **the personal portfolio website** (steveneedham.github.io/portfolio), which has two surface treatments:
-1. **Dark primary surface** — homepage: hero, the two-column "Ops & Leadership" / "Systems & Tools" parallel timeline, about, footer.
-2. **Light "paper" surface** — project detail sub-pages (e.g. `projects/columbus-pantry-map.html`), a lighter, warmer palette for embedding external project demos.
+The system serves one personal identity across four media:
+
+1. **Dark digital surface** — portfolio homepage, presentations, and selected
+   screen-first covers.
+2. **Paper digital surface** — case studies, reports, forms, client status, and
+   accessible light-mode presentation.
+3. **Physical print** — documents, one-pagers, business cards, and PDF exports.
+4. **Consulting identity** — the approved `Urban Strategist` lockup for
+   professional-service collateral. It is a sub-brand, not the default for
+   public or organization-neutral mobility work.
 
 ## Content fundamentals
 
@@ -59,7 +66,16 @@ The brand's original core marks: **colored dots** (9–11px circles) for the tim
 
 ## Assets
 
-Wordmark is "Steven Needham" set in Fraunces, paired with an original logo mark: a hairline route with an amber node, a teal node, and a larger hollow hub node in between (`assets/logo.svg`), echoing the homepage timeline's dot motif and the ops/sys accent duo. `assets/photos/` holds real field photography: a headshot, and Columbus mobility documentation — scooters lined at a lit campus arch (dusk), a scooter at riverside sunset, a festival deployment field of scooters, a downtown bike-share dock with the LeVeque skyline, a group community bike ride, and a field operator loading a fleet-servicing trailer beside a Spin van. A looping background video plays behind the hero.
+The primary wordmark is "Steven Needham" set in Fraunces and paired with the
+route-and-hub mark in `assets/logo.svg`. Dark, paper, square, favicon, pin,
+functional, and social variants are registered in `assets/manifest.json`.
+
+The consulting identity uses the angled route/path mark and `Urban Strategist`
+descriptor. Its editable masters live in `assets/consulting/`. Downstream
+repositories may contain rendered exports, but those are not editable sources.
+
+Photography and motion remain project-owned content. Their selection, cropping,
+poster, accessibility, and reduced-motion rules live in `guidelines/media.md`.
 
 ## Fonts
 
@@ -67,21 +83,55 @@ Fraunces, Inter, and JetBrains Mono, loaded live from Google Fonts (`tokens/font
 
 ## Components
 
-- **`components/core/`** — `NavBar`, `Tag`, `LinkButton`, `SectionHeading`, `Footer`
-- **`components/timeline/`** — `StopCard`, `TrackLegend`
+### Stable core
 
-### Intentional additions
-- `LinkButton` — the source has no `<button>` elements anywhere, only styled links; this component wraps that pattern (3 accent variants: ops/sys/paper) so it's reusable rather than hand-rolled per screen.
-- `SectionHeading` — the eyebrow+headline pairing repeats identically for About/Contact/project sections in source; factored out for consistency.
+- Navigation, SignalStrip, hero, hero metadata
+- Track legend, two-track timeline, timeline stop, trending state
+- Tag, eyebrow, about section, project link, footer, social row
+
+### Stable project detail
+
+- Project hero, lede, download link, metadata grid
+- Numbered section, legend, capability grid, capability level
+- Evidence sequence, stage, decision/outcome state, limitations note
+
+### Stable documents and forms
+
+- Editorial document header and footer
+- Metadata band, numbered heading, paper table
+- Form prompt, response space, signature block, dark cover
+
+### Stable status and reporting
+
+- Written status indicator, KPI, progress, status lists, priorities
+
+### Provisional presentation structures
+
+- Slide geometry, footer, milestone rail, action list
+
+Every status retains a written label; color never carries meaning alone.
+Component specimens live in `guidelines/components.html`.
+
+## Office translation
+
+Use Fraunces / Inter / JetBrains Mono on the web. For Word and PowerPoint,
+translate to Cambria or Georgia / Calibri or Arial / Consolas. Follow
+`guidelines/office.md` for geometry, minimum slide type sizes, print behavior,
+and presentation source notes.
 
 ## Index
 
 ```
-styles.css              → root stylesheet (imports only)
-tokens/                  colors.css, typography.css, spacing.css, fonts.css
-components/core/         NavBar, Tag, LinkButton, SectionHeading, Footer (+ core.card.html)
-components/timeline/     StopCard, TrackLegend (+ timeline.card.html)
-guidelines/              10 foundation specimen cards — Colors, Type, Spacing, Brand
-ui_kits/portfolio/        Home.jsx, ProjectDetail.jsx, index.html, README.md
-thumbnail.html            project tile for the homepage
+styles.css                    → portfolio-compatible core
+bundle.css                    → complete CSS bundle
+paper.css                     → paper and print overrides
+tokens/                       → colors, type, spacing, media, status, fonts
+components/project-detail.css → case studies and evidence
+components/documents.css      → reports, forms, agreements, proposals
+components/status.css         → status and KPI reporting
+components/presentations.css  → slide geometry and structures
+scripts/components.js         → progressive shared behavior
+assets/manifest.json          → versioned asset and identity inventory
+assets/consulting/            → consulting source masters
+guidelines/                   → specimens and implementation standards
 ```

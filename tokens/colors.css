@@ -1,0 +1,23 @@
+:root {
+  --ink: #14171C;
+  --panel: #1B1F27;
+  --panel-line: #282E38;
+  --amber: #E8A33D;
+  --amber-dim: #7A5B2C;
+  --teal: #4FD1C5;
+  --teal-dim: #2C6A64;
+  --text: #EDEAE2;
+  --muted: #8B93A1;
+  --muted-dim: #5B6270;
+
+  --surface-page: var(--ink);
+  --border-default: var(--panel-line);
+  --text-primary: var(--text);
+  --text-muted: var(--muted);
+  --text-muted-dim: var(--muted-dim);
+  --accent-ops: var(--amber);
+  --accent-ops-dim: var(--amber-dim);
+  --accent-sys: var(--teal);
+  --accent-sys-dim: var(--teal-dim);
+  --focus-ring: var(--amber);
+}

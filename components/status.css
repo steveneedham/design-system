@@ -1,0 +1,36 @@
+.status{
+  --status-color:var(--status-neutral);
+  --status-subtle:var(--status-neutral-subtle);
+  display:inline-flex;align-items:center;gap:.45rem;
+  color:var(--status-color);background:var(--status-subtle);
+  border-radius:var(--radius-sm);padding:.3rem .55rem;
+  font:var(--weight-semibold) var(--text-tag)/1 var(--font-mono);
+  letter-spacing:var(--tracking-label);text-transform:uppercase;
+}
+.status::before{content:"";width:7px;height:7px;border-radius:50%;background:currentColor}
+.status[data-status="success"]{--status-color:var(--status-success);--status-subtle:var(--status-success-subtle)}
+.status[data-status="attention"]{--status-color:var(--status-attention);--status-subtle:var(--status-attention-subtle)}
+.status[data-status="risk"]{--status-color:var(--status-risk);--status-subtle:var(--status-risk-subtle)}
+.status[data-status="neutral"]{--status-color:var(--status-neutral);--status-subtle:var(--status-neutral-subtle)}
+.kpi-row{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem}
+.kpi{
+  padding:1rem 0;border-top:1px solid var(--border-default);
+  --kpi-color:var(--status-neutral);
+}
+.kpi[data-status="success"]{--kpi-color:var(--status-success)}
+.kpi[data-status="attention"]{--kpi-color:var(--status-attention)}
+.kpi[data-status="risk"]{--kpi-color:var(--status-risk)}
+.kpi-label{color:var(--text-muted);font:var(--text-tag)/1.3 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase}
+.kpi-value{margin:.4rem 0;font:var(--weight-medium) 2rem/1 var(--font-display)}
+.kpi-delta{color:var(--kpi-color);font:var(--text-mono-xs)/1.3 var(--font-mono)}
+.kpi-bar{height:4px;margin-top:.8rem;background:var(--border-default)}
+.kpi-bar > span{display:block;width:var(--progress,0%);height:100%;background:var(--kpi-color)}
+.status-columns{display:grid;grid-template-columns:1fr 1fr;gap:var(--space-track-gap)}
+.status-list{list-style:none;padding:0;margin:0}
+.status-list li{position:relative;padding:.65rem 0 .65rem 1.2rem;border-bottom:1px solid var(--border-default)}
+.status-list li::before{content:"";position:absolute;left:0;top:1.15rem;width:7px;height:7px;border-radius:50%;background:var(--status-neutral)}
+.status-list[data-status="success"] li::before{background:var(--status-success)}
+.status-list[data-status="attention"] li::before{background:var(--status-attention)}
+.status-list[data-status="risk"] li::before{background:var(--status-risk)}
+@media(max-width:700px){.kpi-row,.status-columns{grid-template-columns:1fr}}
+@media print{.kpi-row{grid-template-columns:repeat(3,1fr)}}
