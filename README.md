@@ -42,8 +42,12 @@ Paper surface:
 - `scripts/components.js` — progressive SignalStrip, reveal, and theme behavior
 - `assets/manifest.json` — versioned asset and identity inventory
 - `assets/consulting/` — editable Urban Strategist source masters
+- `assets/photography/` — approved editorial photography treatments
+- `presentations/` — editable branded presentation masters
 - `guidelines/assets.html` — visual asset catalog
 - `guidelines/components.html` — interactive component specimens
+- `guidelines/accessibility.html` — accessibility acceptance layer
+- `guidelines/accessibility-review.html` — dated review scope, findings, and follow-up
 - `guidelines/brand-architecture.md` — identity and sub-brand boundaries
 - `guidelines/media.md` — photography, motion, and accessibility rules
 - `guidelines/voice-and-tone.md` — editorial voice, contextual tone, and review

@@ -15,7 +15,7 @@ function walk(directory) {
 
 const manifestPath = path.join(root, 'assets/manifest.json');
 const manifest = JSON.parse(fs.readFileSync(manifestPath, 'utf8'));
-const assetLists = ['brandMarks', 'consultingMasters', 'functionalIcons', 'socialIcons'];
+const assetLists = ['brandMarks', 'consultingMasters', 'functionalIcons', 'socialIcons', 'photographyMasters'];
 for (const list of assetLists) {
   for (const relative of manifest[list] || []) {
     const target = path.join(root, 'assets', relative);

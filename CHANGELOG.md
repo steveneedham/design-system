@@ -1,5 +1,16 @@
 # Changelog
 
+## 1.3.0 — 2026-07-28
+
+- Added accessibility as a required acceptance layer for stable components and public artifacts.
+- Published the accessibility standard, definition of done, accommodations commitment, and review record.
+- Added inclusive-practice and accessibility evidence patterns for portfolio and consulting work.
+- Registered the North Market editorial photograph and Civic Data presentation masters in the public asset catalog.
+
+## 1.2.1 — 2026-07-28
+
+- Added the canonical Hey Famm social glyph and linked profile specimen.
+
 ## 1.2.0 — 2026-07-26
 
 - Completed the visual specimen inventory for every documented component layer.

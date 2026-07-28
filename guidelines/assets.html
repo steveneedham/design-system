@@ -34,6 +34,7 @@
     }
     .asset img{width:100%;height:5rem;object-fit:contain;object-position:left center}
     .asset.icon img{width:2.5rem;height:2.5rem}
+    .asset.photo img{height:11rem;object-fit:cover}
     .asset-name{font-family:var(--font-display);font-size:var(--text-h3)}
     .asset-path{color:var(--text-muted);overflow-wrap:anywhere}
     @media(max-width:760px){.asset-grid{grid-template-columns:1fr 1fr}}
@@ -45,7 +46,7 @@
     <header class="catalog-head">
       <div class="catalog-kicker">Foundation / Assets</div>
       <h1>One visual language,<br><em>two surfaces.</em></h1>
-      <p class="catalog-intro">Canonical marks and functional glyphs for the dark portfolio surface and the warm paper surface. Paths shown below are stable repository paths.</p>
+      <p class="catalog-intro">Canonical marks and functional glyphs for the dark portfolio surface and the warm paper surface. Paths shown below are stable repository paths. Usage must also meet the <a href="./accessibility.html">accessibility acceptance layer</a>: meaningful graphics need text alternatives; decorative marks use empty alternative text.</p>
       <div class="theme-switch" aria-label="Preview surface">
         <button type="button" data-theme-choice="dark" aria-pressed="true">Dark surface</button>
         <button type="button" data-theme-choice="paper" aria-pressed="false">Paper surface</button>
@@ -85,6 +86,7 @@
         <figure class="asset icon"><img src="../assets/icons/bluesky.svg" alt="Bluesky icon"><figcaption><div class="asset-name">Bluesky</div><div class="asset-path">assets/icons/bluesky.svg</div></figcaption></figure>
         <figure class="asset icon"><img src="../assets/icons/facebook.svg" alt="Facebook icon"><figcaption><div class="asset-name">Facebook</div><div class="asset-path">assets/icons/facebook.svg</div></figcaption></figure>
         <figure class="asset icon"><img src="../assets/icons/github.svg" alt="GitHub icon"><figcaption><div class="asset-name">GitHub</div><div class="asset-path">assets/icons/github.svg</div></figcaption></figure>
+        <figure class="asset icon"><a href="https://app.heyfamm.com/profile/13587/steven-needham" aria-label="Steven Needham on Hey Famm"><img src="../assets/icons/heyfamm.svg" alt="Hey Famm profile icon"></a><figcaption><div class="asset-name">Hey Famm</div><div class="asset-path">assets/icons/heyfamm.svg</div></figcaption></figure>
         <figure class="asset icon"><img src="../assets/icons/instagram.svg" alt="Instagram icon"><figcaption><div class="asset-name">Instagram</div><div class="asset-path">assets/icons/instagram.svg</div></figcaption></figure>
         <figure class="asset icon"><img src="../assets/icons/linkedin.svg" alt="LinkedIn icon"><figcaption><div class="asset-name">LinkedIn</div><div class="asset-path">assets/icons/linkedin.svg</div></figcaption></figure>
         <figure class="asset icon"><img src="../assets/icons/linktree.svg" alt="Linktree icon"><figcaption><div class="asset-name">Linktree</div><div class="asset-path">assets/icons/linktree.svg</div></figcaption></figure>
@@ -92,6 +94,23 @@
         <figure class="asset icon"><img src="../assets/icons/tiktok.svg" alt="TikTok icon"><figcaption><div class="asset-name">TikTok</div><div class="asset-path">assets/icons/tiktok.svg</div></figcaption></figure>
         <figure class="asset icon"><img src="../assets/icons/whatsapp.svg" alt="WhatsApp icon"><figcaption><div class="asset-name">WhatsApp</div><div class="asset-path">assets/icons/whatsapp.svg</div></figcaption></figure>
         <figure class="asset icon"><img src="../assets/icons/youtube.svg" alt="YouTube icon"><figcaption><div class="asset-name">YouTube</div><div class="asset-path">assets/icons/youtube.svg</div></figcaption></figure>
+      </div>
+    </section>
+
+    <section class="asset-section">
+      <h2>Editorial photography</h2>
+      <p class="theme-note">Use documentary images as evidence of place and operating context. Treatments stay restrained, brand-neutral, and legible without relying on a decorative overlay.</p>
+      <div class="asset-grid">
+        <figure class="asset photo"><img src="../assets/photography/north-market-micromobility-editorial.png" alt="Shared scooters arranged on a sidewalk across from North Market in Columbus"><figcaption><div class="asset-name">North Market / micromobility</div><div class="asset-path">assets/photography/north-market-micromobility-editorial.png</div></figcaption></figure>
+      </div>
+    </section>
+
+    <section class="asset-section">
+      <h2>Presentation masters</h2>
+      <p class="theme-note">Editable PowerPoint masters blend original civic-data graphics with the design system’s editorial type, spacing, color, and evidence hierarchy.</p>
+      <div class="asset-grid">
+        <article class="asset"><div><div class="asset-name">Civic Data / hybrid</div><p>Preferred blend of the original graphics and Steven Needham design system.</p></div><a class="asset-path" href="../presentations/Civic_Data_and_Vendor_Accountability_hybrid.pptx">presentations/Civic_Data_and_Vendor_Accountability_hybrid.pptx</a></article>
+        <article class="asset"><div><div class="asset-name">Civic Data / reconstructed</div><p>Fully reconstructed editorial alternative.</p></div><a class="asset-path" href="../presentations/Civic_Data_and_Vendor_Accountability_reconstructed.pptx">presentations/Civic_Data_and_Vendor_Accountability_reconstructed.pptx</a></article>
       </div>
     </section>
   </main>

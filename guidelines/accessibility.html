@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Accessibility acceptance — Steven Needham Design System</title>
+  <link rel="icon" href="../assets/icons/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../bundle.css">
+  <link rel="stylesheet" href="../paper.css">
+  <style>
+    .standard{max-width:72rem;margin:auto;padding:7rem var(--space-page-x)}
+    .standard header{max-width:64ch;margin-bottom:5rem}
+    .standard h1{font:500 var(--text-hero)/1.08 var(--font-display);margin:.8rem 0 1rem}
+    .standard h2{font:500 var(--text-h2)/1.2 var(--font-display);margin:.5rem 0 1rem}
+    .standard h3{font:500 var(--text-h3)/1.25 var(--font-display);margin:.2rem 0 .6rem}
+    .lede,.standard p,.standard li{color:var(--text-muted)}
+    .standard a{color:var(--text-primary);text-decoration:underline;text-underline-offset:.18em}
+    .standard-section{padding:3.5rem 0;border-top:1px solid var(--border-default)}
+    .criteria{display:grid;grid-template-columns:1fr 1fr;gap:0 2.5rem;padding:0;list-style:none}
+    .criteria li{padding:1.4rem 0;border-top:1px solid var(--border-default)}
+    .criteria strong{display:block;color:var(--text-primary);font:500 var(--text-tag)/1.4 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase}
+    .definition{max-width:68ch}
+    .definition li{margin:.7rem 0}
+    .commitment{border-left:2px solid var(--accent-ops);padding-left:1.25rem;max-width:62ch}
+    @media(max-width:720px){.criteria{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+  <main class="standard">
+    <header>
+      <div class="eyebrow">Governance / Accessibility</div>
+      <h1>Access is an acceptance criterion,<br><em>not a finishing pass.</em></h1>
+      <p class="lede">Stable components and public artifacts target WCAG 2.2 Level AA. A component is not complete because it looks correct; it must remain understandable and operable across input methods, viewport sizes, motion preferences, and assistive technologies.</p>
+    </header>
+
+    <section class="standard-section" aria-labelledby="acceptance-heading">
+      <div class="eyebrow">01 / Acceptance layer</div>
+      <h2 id="acceptance-heading">Eight checks apply before release.</h2>
+      <ul class="criteria">
+        <li><strong>Structure</strong>Use one clear page title, ordered headings, landmarks, lists, tables, and native controls that communicate their purpose without visual position.</li>
+        <li><strong>Keyboard and focus</strong>Every action works without a pointer. Focus is visible, ordered, unobscured, and never trapped.</li>
+        <li><strong>Contrast and color</strong>Text and meaningful UI meet AA contrast. Color is never the only signal for status, ownership, or error.</li>
+        <li><strong>Reflow and zoom</strong>Content remains usable at 200% zoom and a 320 CSS-pixel viewport without two-dimensional scrolling except where the information requires it.</li>
+        <li><strong>Motion</strong>Animation is optional, never carries essential meaning, and honors <code>prefers-reduced-motion</code>.</li>
+        <li><strong>Media and graphics</strong>Meaningful images have concise alternatives; complex visuals receive nearby explanations; decorative graphics use empty alternative text.</li>
+        <li><strong>Forms and errors</strong>Inputs have persistent labels, instructions, programmatic error association, recoverable validation, and a non-embedded alternative when a third party blocks access.</li>
+        <li><strong>Documents and language</strong>Page language is declared. Downloads use descriptive link text and are tagged, structured, or accompanied by an accessible HTML equivalent.</li>
+      </ul>
+    </section>
+
+    <section class="standard-section" aria-labelledby="done-heading">
+      <div class="eyebrow">02 / Definition of done</div>
+      <h2 id="done-heading">Evidence travels with the work.</h2>
+      <ol class="definition">
+        <li>Automated checks have no known critical accessibility errors.</li>
+        <li>A keyboard-only pass reaches every control in a logical order with visible focus.</li>
+        <li>Responsive reflow, text zoom, reduced motion, contrast, and non-color meaning are reviewed manually.</li>
+        <li>Case studies name relevant accessibility decisions, evidence, known limitations, and the accessible alternative.</li>
+        <li>Exceptions identify an owner, mitigation, and review date. “Third party” is context, not a waiver.</li>
+      </ol>
+    </section>
+
+    <section class="standard-section" aria-labelledby="language-heading">
+      <div class="eyebrow">03 / Inclusive language</div>
+      <h2 id="language-heading">Describe access without speaking for people.</h2>
+      <p>Use direct, person-respecting language; name specific barriers and remedies; avoid inspiration framing, diagnostic assumptions, and claims of universal access. LGBTQ identity and disability are not decorative credentials. They inform how safety, belonging, privacy, autonomy, and participation are designed into the work.</p>
+    </section>
+
+    <section class="standard-section" aria-labelledby="feedback-heading">
+      <div class="eyebrow">04 / Feedback and accommodations</div>
+      <h2 id="feedback-heading">A barrier report starts a response.</h2>
+      <div class="commitment">
+        <p>Accessibility feedback is acknowledged within two business days. Accessible alternatives and reasonable communication accommodations are available on request.</p>
+        <p><a href="mailto:sjneedham@icloud.com?subject=Accessibility%20feedback">Report an accessibility barrier or request an accommodation</a>.</p>
+      </div>
+      <p><a href="./accessibility-review.html">Read the current accessibility review</a> · <a href="./components.html">Return to component specimens</a></p>
+    </section>
+  </main>
+</body>
+</html>

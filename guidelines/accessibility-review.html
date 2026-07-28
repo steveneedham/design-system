@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Accessibility review — Steven Needham Design System</title>
+  <link rel="icon" href="../assets/icons/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../bundle.css">
+  <link rel="stylesheet" href="../paper.css">
+  <style>
+    .review{max-width:72rem;margin:auto;padding:7rem var(--space-page-x)}
+    .review header{max-width:64ch;margin-bottom:4rem}
+    .review h1{font:500 var(--text-hero)/1.08 var(--font-display);margin:.8rem 0 1rem}
+    .review h2{font:500 var(--text-h2)/1.2 var(--font-display);margin:.4rem 0 1rem}
+    .review p,.review li,.review dd{color:var(--text-muted)}
+    .review a{color:var(--text-primary);text-decoration:underline;text-underline-offset:.18em}
+    .review-section{padding:3rem 0;border-top:1px solid var(--border-default)}
+    .review-meta{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:2rem}
+    .review-meta div{border-top:1px solid var(--border-default);padding-top:.8rem}
+    .review-meta dt{font:var(--text-foot)/1.4 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-muted-dim)}
+    .review-meta dd{margin:.35rem 0 0}
+    .findings{padding-left:1.2rem;max-width:72ch}.findings li{margin:1rem 0}
+    .status{color:var(--status-success);font:var(--text-tag)/1.4 var(--font-mono);text-transform:uppercase;letter-spacing:var(--tracking-label)}
+    @media(max-width:720px){.review-meta{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+  <main class="review">
+    <header>
+      <div class="eyebrow">Review record / 28 July 2026</div>
+      <h1>Accessibility review,<br><em>documented in public.</em></h1>
+      <p>This record describes the release review for the design-system specimens and their application to the portfolio, Urban Strategist page, and selected case studies. It is a point-in-time review, not a claim that every experience is barrier-free.</p>
+      <dl class="review-meta">
+        <div><dt>Target</dt><dd>WCAG 2.2 Level AA</dd></div>
+        <div><dt>Review type</dt><dd>Source, structural, and rendered-page review</dd></div>
+        <div><dt>Next review</dt><dd>After material component changes or by January 2027</dd></div>
+      </dl>
+    </header>
+
+    <section class="review-section">
+      <div class="eyebrow">01 / Scope and method</div>
+      <h2>What was examined.</h2>
+      <p>The review covered the portfolio homepage, Accessibility &amp; accommodations page, Urban Strategist consulting page, asset and component specimens, and the Technology Ecosystem and How I Think case studies.</p>
+      <ul class="findings">
+        <li>Source checks for page language, titles, headings, landmarks, alternative text, form titles, link purpose, reduced-motion rules, focus treatment, and duplicate identifiers.</li>
+        <li>Rendered-page checks at desktop and narrow viewports, including responsive reflow, visual hierarchy, and visible feedback routes.</li>
+        <li>Manual source review of focus treatment, color-dependent meaning, motion, embedded content, image descriptions, and accessible alternatives.</li>
+      </ul>
+    </section>
+
+    <section class="review-section">
+      <div class="eyebrow">02 / Findings and actions</div>
+      <h2>Release findings.</h2>
+      <p class="status">Material findings addressed for this release</p>
+      <ol class="findings">
+        <li><strong>Accessibility had no release gate.</strong> Added the eight-part acceptance layer and required evidence in the definition of done.</li>
+        <li><strong>Feedback and accommodations were difficult to find.</strong> Added a dedicated public page, footer feedback route, alternative-format offer, and two-business-day acknowledgement commitment.</li>
+        <li><strong>Practice commitments were implicit.</strong> Added a plain-language Urban Strategist commitment covering LGBTQ ownership, disability access, and responsive accommodations.</li>
+        <li><strong>Case studies named accessibility as a skill but did not show decisions.</strong> Added decision, evidence, limitation, and alternative-format notes to selected studies.</li>
+        <li><strong>Social identity assets were incomplete.</strong> Added the canonical Hey Famm glyph to the asset manifest and specimens with an accessible link name.</li>
+      </ol>
+    </section>
+
+    <section class="review-section">
+      <div class="eyebrow">03 / Known limitations</div>
+      <h2>What still requires care.</h2>
+      <ul class="findings">
+        <li>The Urban Strategist intake form is hosted by Airtable. A direct email route is maintained as the accessible alternative when the embed is difficult to use.</li>
+        <li>Some legacy PDFs, slide decks, and archived standalone pages may require document-specific remediation before public distribution.</li>
+        <li>Complex diagrams require adjacent prose explanations; the diagram alone is not treated as the accessible version.</li>
+        <li>Automated testing cannot establish conformance by itself. Feedback from disabled people takes precedence over a passing tool result.</li>
+      </ul>
+      <p><a href="mailto:sjneedham@icloud.com?subject=Accessibility%20feedback">Report a barrier</a> · <a href="./accessibility.html">Read the acceptance standard</a></p>
+    </section>
+  </main>
+</body>
+</html>
