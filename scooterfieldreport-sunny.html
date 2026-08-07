@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="sunny">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scooter Challenge — Operator Choice in Real Time</title>
+<style>
+  :root[data-theme="sunny"] {
+    --paper: #FDF8F0;
+    --sheet: #FBF5ED;
+    --panel: #EBE4DA;
+    --rule: #D9D2C5;
+    --ink: #1F1810;
+    --note: #8B8370;
+    --brick: #F4A538;
+    --brick-dim: #D9851F;
+    --river: #2BA4A8;
+    --river-wash: #A8D5BA;
+    --mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    --display: Georgia, 'Times New Roman', serif;
+    --body: -apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, sans-serif;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font: 16px/1.6 var(--body);
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: var(--river); text-underline-offset: .2em; }
+  a:focus-visible, button:focus-visible { outline: 2px solid var(--brick); outline-offset: 2px; }
+  ::selection { background: var(--river-wash); color: var(--ink); }
+
+  .wrap { max-width: 740px; margin: 0 auto; padding: 56px 24px 90px; }
+
+  .masthead { border-bottom: 2px solid var(--brick); padding-bottom: 28px; margin-bottom: 8px; }
+  .eyebrow {
+    display: inline-block;
+    font: 600 .68rem var(--mono);
+    letter-spacing: .09em;
+    text-transform: uppercase;
+    color: var(--brick);
+    margin: 0 0 14px;
+  }
+  h1 {
+    margin: 0 0 10px;
+    font: 500 clamp(1.9rem, 4.4vw, 2.7rem)/1.15 var(--display);
+    letter-spacing: -.01em;
+    text-wrap: balance;
+  }
+  .subtitle { margin: 0 0 18px; max-width: 54ch; color: var(--note); font-size: 1.02rem; }
+  .meta-row {
+    display: flex; flex-wrap: wrap; gap: 8px 18px;
+    font: 500 .78rem var(--mono); color: var(--note);
+  }
+  .meta-row b { color: var(--ink); font-weight: 600; }
+
+  .changelog {
+    margin: 32px 0 44px;
+    padding: 20px 22px;
+    background: var(--sheet);
+    border: 2px solid var(--brick);
+    border-left: 4px solid var(--brick);
+  }
+  .changelog .eyebrow { color: var(--brick); margin-bottom: 10px; }
+  .changelog ul { margin: 0; padding-left: 20px; }
+  .changelog li { margin: 0 0 8px; font-size: .92rem; }
+  .changelog li:last-child { margin-bottom: 0; }
+  .changelog code { font: .82em var(--mono); background: var(--panel); padding: .1em .35em; border-radius: 3px; }
+
+  section { margin: 44px 0; }
+  section > h2 {
+    font: 500 1.5rem var(--display);
+    margin: 0 0 4px;
+    text-wrap: balance;
+    color: var(--ink);
+  }
+  .section-label {
+    display: block;
+    font: 600 .66rem var(--mono);
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: var(--brick);
+    margin: 0 0 6px;
+  }
+  section > p, section > ul, section > ol { margin: 14px 0; max-width: 66ch; }
+  section h3 { font: 600 1.05rem var(--body); margin: 26px 0 10px; color: var(--ink); }
+  ul, ol { padding-left: 22px; }
+  li { margin: 5px 0; }
+  strong { font-weight: 650; }
+
+  .table-wrap { overflow-x: auto; margin: 18px 0; border: 2px solid var(--brick); border-radius: 6px; }
+  table { width: 100%; border-collapse: collapse; font-size: .88rem; background: var(--sheet); }
+  th, td { padding: 10px 13px; border-bottom: 1px solid var(--rule); text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+  th:first-child, td:first-child { text-align: left; white-space: normal; }
+  thead th { font: 600 .66rem var(--mono); letter-spacing: .05em; text-transform: uppercase; color: white; background: var(--brick); }
+  tbody tr:last-child td { border-bottom: 0; }
+  td.win { color: var(--brick); font-weight: 650; }
+  td.emph { font-weight: 650; }
+  caption { caption-side: bottom; text-align: left; padding: 8px 2px 0; font: .74rem var(--mono); color: var(--note); }
+
+  .callout {
+    margin: 22px 0;
+    padding: 18px 22px;
+    background: var(--sheet);
+    border: 2px solid var(--brick);
+    border-left: 4px solid var(--brick);
+    border-radius: 6px;
+  }
+  .callout.river { border-color: var(--river); border-left-color: var(--river); }
+  .callout .label { display: block; font: 700 .68rem var(--mono); letter-spacing: .07em; text-transform: uppercase; color: var(--brick); margin-bottom: 8px; }
+  .callout.river .label { color: var(--river); }
+  .callout p { margin: 0; max-width: none; }
+  .callout p + p { margin-top: 10px; }
+
+  .verdict {
+    margin: 22px 0;
+    padding: 24px 26px;
+    background: linear-gradient(135deg, #FFE4A3 0%, #FFD478 50%, #FFFAED 100%);
+    color: var(--ink);
+    border: 2px solid var(--brick);
+    border-radius: 8px;
+  }
+  .verdict .label { display: block; font: 700 .68rem var(--mono); letter-spacing: .08em; text-transform: uppercase; color: var(--brick); margin-bottom: 10px; }
+  .verdict h3 { margin: 0 0 10px; font: 500 1.4rem var(--display); color: var(--ink); }
+  .verdict p { margin: 0; color: var(--ink); opacity: .95; max-width: none; }
+
+  .status-list { list-style: none; padding: 0; margin: 14px 0; }
+  .status-list li { display: flex; gap: 10px; align-items: baseline; padding: 4px 0; font-size: .92rem; }
+  .status-list .mark { flex: 0 0 auto; font: 700 .8rem var(--mono); width: 1.3em; }
+  .status-list .done .mark { color: var(--river); }
+  .status-list .open .mark { color: var(--note); }
+  .status-list .cut { text-decoration: line-through; color: var(--note); }
+
+  .divider { border: none; border-top: 2px solid var(--brick); margin: 44px 0; }
+
+  footer {
+    margin-top: 60px;
+    padding-top: 22px;
+    border-top: 2px solid var(--brick);
+    color: var(--note);
+    font: .78rem var(--mono);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  @media (max-width: 560px) {
+    .wrap { padding: 40px 18px 70px; }
+    th, td { padding: 8px 9px; font-size: .82rem; }
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <header class="masthead">
+    <p class="eyebrow">Field report · shareable case study</p>
+    <h1>Scooter Challenge: Operator Choice in Real Time</h1>
+    <p class="subtitle">A field-level research tool for micromobility riders in shared-scooter cities.</p>
+    <div class="meta-row">
+      <span>Columbus · originally drafted <b>Jul 31, 2026</b></span>
+      <span>Status refreshed <b>Aug 5, 2026</b></span>
+      <span><b>MVP shipped and live</b></span>
+    </div>
+  </header>
+
+  <div class="changelog">
+    <p class="eyebrow">What changed since the first draft</p>
+    <ul>
+      <li><strong>OCR shipped, not deferred.</strong> Receipt screenshot scanning is live — runs client-side via WebAssembly, nothing uploaded. The original "defer OCR" plan is out of date.</li>
+      <li><strong>GBFS endpoints were wrong even at spec time.</strong> Veo's real feed is <code>cluster-prod.veoride.com/.../free_bike_status</code> (not the station-based <code>gbfs.veo.dev</code> feed, which doesn't apply to Columbus's free-floating deployment). Spin's real feed is <code>mds.bird.co/gbfs/v2/public/provider/spin/columbus/free_bike_status.json</code> (not <code>feeds.spin.app/gbfs/v3/...</code>). Confirmed against the shipped fetch code.</li>
+      <li><strong>The dark-ops amber/teal design system was never used.</strong> The shipped tool inherits the dashboard's own light editorial theme instead — same one this report is styled in.</li>
+      <li><strong>"No tracking" is no longer accurate.</strong> An anonymized usage event is now logged per run (ride frequency, nearest neighborhood — never an address — winner, savings), feeding a live ticker on the tool itself.</li>
+      <li><strong>The tool is live</strong>, not "will be deployed" — linked from the dashboard's nav, homepage promo card, and Research Library.</li>
+    </ul>
+  </div>
+
+  <section>
+    <span class="section-label">The problem</span>
+    <p>Most riders don't know which operator is actually cheaper for them. They see per-minute rates or monthly passes, but their real cost depends on how often they ride, how long their rides are, and whether vehicles are actually available in their neighborhood.</p>
+    <p>This happens in a gap: operators market their pricing confidently, but riders have no way to compare real costs against their own behavior. That gap costs people $50–150/month in invisible choices.</p>
+  </section>
+
+  <section>
+    <span class="section-label">Example: a real rider's situation</span>
+    <ul>
+      <li><strong>Location:</strong> East Columbus, near Ohio State University</li>
+      <li><strong>Riding pattern:</strong> ~25 rides/month (mix of commute + leisure)</li>
+      <li><strong>Average ride:</strong> 13–15 minutes</li>
+      <li><strong>Current operator:</strong> Spin (99¢ Club)</li>
+      <li><strong>The question:</strong> Should I switch to Veo, or stay on Spin?</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>The data pulled</h2>
+
+    <h3>Fleet density (two GBFS snapshots, ~11 min apart)</h3>
+    <p>Citywide:</p>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Operator</th><th>Total</th><th>Available</th><th>Availability</th></tr></thead>
+        <tbody>
+          <tr><td>Spin</td><td>1,289–1,290</td><td>1,244–1,247</td><td>96.5–96.7%</td></tr>
+          <tr><td>Veo</td><td>2,234–2,237</td><td>2,160–2,173</td><td>96.7–97.1%</td></tr>
+        </tbody>
+      </table>
+      <caption>Veo's citywide fleet is 1.73x Spin's.</caption>
+    </div>
+
+    <p>Around the rider's home (0.25 mi radius):</p>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Operator</th><th>Nearby</th><th>Availability</th></tr></thead>
+        <tbody>
+          <tr><td>Spin</td><td>2–3 vehicles</td><td>100%</td></tr>
+          <tr><td>Veo</td><td>4 vehicles</td><td>100%</td></tr>
+        </tbody>
+      </table>
+      <caption>Veo's local density edge shrinks to 1.3–2.0x — well below its citywide ratio.</caption>
+    </div>
+
+    <h3>Ride receipts (recent history)</h3>
+    <p>Spin rides (3 most recent):</p>
+    <ul>
+      <li>Jul 29, 19:26 — 5 min, $2.58 → $0.516/min</li>
+      <li>Jul 29, 15:37 — 5 min, $2.58 → $0.516/min</li>
+      <li>Jul 29, 14:25 — 5 min, $2.58 → $0.516/min</li>
+    </ul>
+    <p>Average from receipts: ~$2.58/ride, ~5 min per ride — these are short. Adjusted for the actual riding pattern (13.5 min average, commute + leisure mix), real per-ride cost is closer to $3.20–3.30.</p>
+  </section>
+
+  <section>
+    <h2>The math</h2>
+
+    <h3>Operator A — Spin 99¢ Club</h3>
+    <ul>
+      <li>Monthly fee: $0.99</li>
+      <li>Per-ride flat: $2.39</li>
+      <li>Speed advantage: 18–22 mph (shorter ride times)</li>
+    </ul>
+    <p>Cost at 25 rides/month: $0.99 + (25 × $2.39) = <strong>$60.74</strong></p>
+
+    <h3>Operator B — Veo VeoPlus Premium</h3>
+    <ul>
+      <li>Monthly fee: $5.99</li>
+      <li>Per-minute rate: $0.475</li>
+      <li>Speed cap: 17 mph (slightly longer rides)</li>
+    </ul>
+    <p>Cost at 25 rides/month (13.5 min avg): $5.99 + (25 × 13.5 × $0.475) = <strong>$166.31</strong></p>
+  </section>
+
+  <div class="callout">
+    <span class="label">The difference</span>
+    <p>Spin saves <strong>$105.57/month</strong>, or <strong>$1,266.84/year</strong>. Annualized on 200+ annual rides, Spin is roughly 2.7x cheaper at this volume.</p>
+  </div>
+
+  <section>
+    <h2>The density question</h2>
+    <p>Could Veo's 1.73x fleet advantage offset the cost? If Veo saved 8+ minutes per ride through better availability:</p>
+    <ul>
+      <li>8 min saved × 25 rides = 200 min saved</li>
+      <li>At $0.475/min, that's ~$95 in avoided per-minute charges</li>
+      <li>Veo cost would drop to ~$71 — still more than Spin at $61</li>
+    </ul>
+    <p><strong>Reality check:</strong> in the neighborhood, both operators have 100% availability right now. The density advantage exists, but it's not translating to search-time savings. The immediate area is well-served by both fleets.</p>
+  </section>
+
+  <div class="verdict">
+    <span class="label">What the rider decided</span>
+    <h3>Stay on Spin 99¢ Club</h3>
+    <p>Cost advantage is massive ($50–110/month) at this actual volume. Fleet density difference (1.3–2.0x locally) doesn't create enough availability win to offset the per-minute premium. Spin's speed advantage (18–22 mph) compounds the cost win by keeping ride times shorter. The neighborhood has balanced coverage, not a coverage desert.</p>
+    <p style="margin-top:14px;"><strong>Contingency:</strong> Keep Veo installed as a backup for edge cases (Spin outage, maintenance window, specific destination). But Spin is primary.</p>
+  </div>
+
+  <section>
+    <h2>What this revealed</h2>
+    <p>This wasn't just a personal decision. It's a case study in how pricing structure matters more than marketing claims.</p>
+    <p><strong>Key finding:</strong> if you ride 20–30 times/month at 10–15 minutes per ride, pricing model (flat vs. per-minute) is the variable that matters. Everything else — brand, fleet size, speed cap — is secondary.</p>
+    <p>For a rider who uses each operator once a month, or rides for 3–5 minutes at a time, the math would flip. For someone commuting daily on 25+ minute rides, per-minute could win. But for the bulk of casual-to-regular riders in mid-density neighborhoods, flat-rate pricing is unbeatable.</p>
+  </section>
+
+  <hr class="divider">
+
+  <section>
+    <h2>Building Scooter Challenge around this</h2>
+    <p>This analysis turned into a tool so other riders don't have to do this manually. <strong>It's live now</strong> — linked from the dashboard's main nav, homepage promo card, and Research Library, opening as a mobile-sized popup window on desktop and full navigation on mobile.</p>
+
+    <h3>The form</h3>
+    <ul>
+      <li>Your home + up to 3 frequent destinations</li>
+      <li>2–3 ride receipts — type them in, or scan a screenshot and let it auto-fill the fields (client-side OCR, nothing uploaded; you still review and can correct before submitting)</li>
+      <li>Monthly frequency estimate</li>
+    </ul>
+
+    <h3>The output</h3>
+    <ul>
+      <li>Live vehicle counts from each location — not hunt time. Hunt time is computed in the codebase but not wired into the live flow yet, so vehicle count remains the actual MVP signal, as originally planned</li>
+      <li>Cost projection at your volume, with a "what does this mean?" explainer on the confidence score</li>
+      <li>Recommendation + confidence score</li>
+      <li>Downloadable skill (Markdown, for Claude/ChatGPT/Gemini) <em>and</em> a raw JSON results snapshot</li>
+      <li>A ticker of real anonymized submissions from other riders, pulled back from PostHog every 6 hours by a scheduled job — honest caveat: it's showing zero real submissions so far, which is itself the current open question</li>
+    </ul>
+
+    <p>The hypothesis being tested is unchanged: <em>"Riders making operator choices with real data — their own receipts + live fleet density — will make different choices than riders deciding based on marketing."</em> There's no usage data yet to test it. The tool just shipped.</p>
+  </section>
+
+  <section>
+    <h2>Technical approach</h2>
+
+    <h3>Data sources</h3>
+    <ul>
+      <li>GBFS feeds: Spin (<code>mds.bird.co</code> provider feed) and Veo (<code>cluster-prod.veoride.com</code> free_bike_status feed) — both free-floating, no station IDs. The original Veo endpoint was wrong (station-based), caught during code review before shipping.</li>
+      <li>Ride history: manual entry, or scan a receipt screenshot — OCR, client-side, no server round-trip</li>
+      <li>Geographic: Haversine distance, ~¼-mile radius for "nearby"</li>
+    </ul>
+
+    <h3>Stack</h3>
+    <ul>
+      <li>React + Tailwind frontend, using the dashboard's existing light editorial theme (paper / ink / brick / river, IBM Plex + Newsreader) with real operator brand colors sampled from each vendor's site — not the portfolio's dark-ops system originally planned. It ships as part of the public dashboard, so it inherits that visual identity instead.</li>
+      <li>Client-side cost calculation, no backend</li>
+      <li>Client-side OCR (Tesseract.js / WebAssembly) for receipt screenshots</li>
+      <li>Markdown + JSON export for skill reusability</li>
+      <li>Anonymized PostHog + GA4 event on each run, pulled back into a static ticker file by a scheduled GitHub Action — the closest thing to a "backend" this has, and even that never touches raw ride data</li>
+      <li>An admin-only, unlinked page for updating Spin/Veo rates without touching code</li>
+    </ul>
+
+    <h3>Status vs. original timeline</h3>
+    <p>The Aug 1–7 phase plan mostly held: form, calculator, confidence scoring, GBFS integration, results UI, and skill export all shipped within that window. What wasn't originally planned and got added: the admin rates page, anonymized analytics with a real ticker, and OCR — moved up from "next phase" into MVP once client-side OCR turned out to be reasonable.</p>
+
+    <h3>Success metrics</h3>
+    <p>Still open, since real usage is the missing piece:</p>
+    <ul class="status-list">
+      <li class="done"><span class="mark">✓</span> Form accepts addresses + receipts without friction</li>
+      <li class="done"><span class="mark">✓</span> Cost projection matches manual math — verified against this case study: Spin $60.74 vs. Veo $166.31 at 25 rides/mo, 13.5 min avg</li>
+      <li class="done"><span class="mark">✓</span> Skill export works — Markdown and JSON both shipped</li>
+      <li class="open"><span class="mark">–</span> Recommendation aligns with actual rider behavior — no usage data yet</li>
+      <li class="open"><span class="mark">–</span> Real submissions — ticker is live but empty; this is the actual current bottleneck, not the build</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Broader context</h2>
+    <p>This fits into larger ops/systems work:</p>
+    <ul>
+      <li><strong>Operational:</strong> field-level decision-making with real data</li>
+      <li><strong>Systems:</strong> how information gaps create invisible costs</li>
+      <li><strong>Civic:</strong> riders deserve to know what they're actually spending</li>
+    </ul>
+    <p>After three years running mobility operations (Spin, Veo), building dashboards that make fleets legible, publishing field reports — this tool extends that work into the rider's perspective.</p>
+    <p>The north star is the same: how do you build systems where people feel safe, seen, and able to move forward? Part of that is transparency about cost.</p>
+  </section>
+
+  <section>
+    <h2>Next phases (if validated)</h2>
+    <ol>
+      <li>Multi-city: Austin, Denver, San Francisco</li>
+      <li><span class="cut">OCR: eliminate manual receipt entry</span> — shipped</li>
+      <li>Trend tracking: watch how rates and fleets change over time</li>
+      <li>Aggregated insights: where do operators actually win by neighborhood and use case?</li>
+      <li><strong>New:</strong> get real usage. The tool works, but nobody's used it yet — that's the actual next milestone, not another feature.</li>
+    </ol>
+    <p>But first: does the math hold? Do riders actually use this? Does the tool change which operator they choose?</p>
+  </section>
+
+  <section>
+    <h2>Working notes</h2>
+
+    <h3>Unanswered questions</h3>
+    <ul>
+      <li>Does Veo's 1.73x fleet actually feel different to riders, or is 1.3–2.0x local density below the perceptual threshold?</li>
+      <li>If you switched operators and tracked 50 rides, would real-world costs match projections?</li>
+      <li>How does vehicle condition (battery, cleanliness) factor into the choice? Still doesn't — and for Veo specifically, it can't: I confirmed while building fleet-movement tracking that Veo's GBFS feed never reports a battery percentage at all, across every archived snapshot. Range remaining is the closest proxy Veo exposes.</li>
+    </ul>
+
+    <h3>Data gaps</h3>
+    <ul>
+      <li>Only 3 recent ride receipts informing this specific case study; would be better with 20+</li>
+      <li>No Veo ride data from this location</li>
+      <li>GBFS snapshots were ~11 min apart for this analysis — but the pipeline now pulls twice daily (8am / 8pm UTC) plus an on-demand fleet export, so density data going forward is less of a single-moment snapshot than it was when this was first drafted</li>
+    </ul>
+
+    <h3>Design constraints</h3>
+    <ul class="status-list">
+      <li class="done"><span class="cut">MVP won't include OCR</span> — it does now</li>
+      <li class="open"><span class="mark">–</span> No geocoding API — still true, addresses / lat-lon are manual entry</li>
+      <li class="open"><span class="mark">–</span> Client-side only, no persistent storage of <em>your</em> ride history — still true; what changed is that an anonymized, aggregated usage event is now logged per run, never your address or receipt amounts</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Repository &amp; deployment</h2>
+    <p><strong>Code &amp; data:</strong> <a href="https://github.com/steveneedham/columbus-micromobility-data" target="_blank" rel="noopener">steveneedham/columbus-micromobility-data</a></p>
+    <p><strong>Live tool:</strong> shipped — linked from the dashboard's main nav, homepage promo card, and Research Library card. Opens as a mobile-sized popup on desktop.</p>
+    <p><strong>Related projects:</strong></p>
+    <ul>
+      <li><a href="https://steveneedham.github.io/311-Intel/" target="_blank" rel="noopener">311 Field Intelligence</a> — live Columbus mobility ops dashboard</li>
+      <li><a href="https://steveneedham.github.io/portfolio/projects/technology-ecosystem.html" target="_blank" rel="noopener">Technology ecosystem</a> — architectural portfolio of systems work</li>
+    </ul>
+  </section>
+
+  <footer>
+    <span>Field-level research into operator economics and rider choice.</span>
+    <span>Columbus · drafted Jul 31, 2026 · refreshed Aug 5, 2026 · shareable case study</span>
+  </footer>
+
+</div>
+
+</body>
+</html>
