@@ -7,6 +7,7 @@
   <link rel="icon" href="../assets/icons/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="../styles.css">
   <link rel="stylesheet" href="../paper.css">
+  <link rel="stylesheet" href="../sunny.css">
   <style>
     .catalog{padding:clamp(6rem,12vw,9rem) var(--space-page-x) 5rem}
     .catalog-head{max-width:64rem;margin:0 auto 4rem}
@@ -45,11 +46,12 @@
   <main class="catalog">
     <header class="catalog-head">
       <div class="catalog-kicker">Foundation / Assets</div>
-      <h1>One visual language,<br><em>two surfaces.</em></h1>
-      <p class="catalog-intro">Canonical marks and functional glyphs for the dark portfolio surface and the warm paper surface. Paths shown below are stable repository paths. Usage must also meet the <a href="./accessibility.html">accessibility acceptance layer</a>: meaningful graphics need text alternatives; decorative marks use empty alternative text.</p>
+      <h1>One visual language,<br><em>three surfaces.</em></h1>
+      <p class="catalog-intro">Canonical marks and functional glyphs for the dark portfolio surface, warm paper surface, and bright sunny variant. Paths shown below are stable repository paths. Usage must also meet the <a href="./accessibility.html">accessibility acceptance layer</a>: meaningful graphics need text alternatives; decorative marks use empty alternative text.</p>
       <div class="theme-switch" aria-label="Preview surface">
         <button type="button" data-theme-choice="dark" aria-pressed="true">Dark surface</button>
         <button type="button" data-theme-choice="paper" aria-pressed="false">Paper surface</button>
+        <button type="button" data-theme-choice="sunny" aria-pressed="false">Sunny surface</button>
       </div>
     </header>
 
@@ -98,6 +100,15 @@
     </section>
 
     <section class="asset-section">
+      <h2>Research & systems (sunny theme)</h2>
+      <p class="theme-note">Purpose-built icons for research, data collection, and labs. Displayed in sunny theme variant with mixed amber and teal accents.</p>
+      <div class="asset-grid">
+        <figure class="asset"><img src="../assets/field-report-icon-sunny.svg" alt="Field report research icon"><figcaption><div class="asset-name">Field report</div><div class="asset-path">assets/field-report-icon-sunny.svg</div></figcaption></figure>
+        <figure class="asset"><img src="../assets/urban-transit-labs-icons-sunny.svg" alt="Urban Transit Labs beaker and test tube icons"><figcaption><div class="asset-name">Urban Transit Labs icons</div><div class="asset-path">assets/urban-transit-labs-icons-sunny.svg</div></figcaption></figure>
+      </div>
+    </section>
+
+    <section class="asset-section">
       <h2>Editorial photography</h2>
       <p class="theme-note">Use documentary images as evidence of place and operating context. Treatments stay restrained, brand-neutral, and legible without relying on a decorative overlay.</p>
       <div class="asset-grid">
@@ -115,5 +126,17 @@
     </section>
   </main>
   <script src="../scripts/components.js"></script>
+  <script>
+    // Theme switcher for asset catalog
+    const themeButtons = document.querySelectorAll('.theme-switch button');
+    themeButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        const theme = button.dataset.themeChoice;
+        themeButtons.forEach(b => b.setAttribute('aria-pressed', 'false'));
+        button.setAttribute('aria-pressed', 'true');
+        document.documentElement.setAttribute('data-theme', theme);
+      });
+    });
+  </script>
 </body>
 </html>
