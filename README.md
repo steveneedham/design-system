@@ -29,11 +29,20 @@ Paper surface:
 <html data-theme="paper">
 ```
 
+Sunny variant (bright, bold, amber/teal accents):
+
+```html
+<link rel="stylesheet" href="bundle.css">
+<link rel="stylesheet" href="sunny.css">
+<html data-theme="sunny">
+```
+
 ## Repository map
 
 - `styles.css` — portfolio core and responsive behavior
 - `bundle.css` — core plus every optional component layer
 - `paper.css` — paper and print overrides
+- `sunny.css` — sunny theme variant (bright amber, warm cream, bold borders)
 - `tokens/` — color, type, spacing, status, media, motion, and layer tokens
 - `components/project-detail.css` — case studies and evidence flows
 - `components/documents.css` — reports, forms, agreements, and proposals
@@ -43,12 +52,16 @@ Paper surface:
 - `assets/manifest.json` — versioned asset and identity inventory
 - `assets/consulting/` — editable Urban Strategist source masters
 - `assets/photography/` — approved editorial photography treatments
+- `assets/field-report-icon-sunny.svg` — sunny theme field research icon
+- `assets/urban-transit-labs-icons-sunny.svg` — sunny theme lab icons (beaker, test tube)
 - `presentations/` — editable branded presentation masters
 - [`guidelines/assets.html`](guidelines/assets.html) — visual asset catalog
 - [`guidelines/components.html`](guidelines/components.html) — interactive component specimens
 - [`guidelines/accessibility.html`](guidelines/accessibility.html) — accessibility acceptance layer
 - [`guidelines/accessibility-review.html`](guidelines/accessibility-review.html) — dated review scope, findings, and follow-up
 - `guidelines/brand-architecture.md` — identity and sub-brand boundaries
+- `guidelines/sunny-theme.md` — sunny variant usage, design rationale, and examples
+- `guidelines/social-media-posts.md` — templated posts for data collection campaigns
 - `guidelines/media.md` — photography, motion, and accessibility rules
 - `guidelines/voice-and-tone.md` — editorial voice, contextual tone, and review
 - `guidelines/office.md` — Word and PowerPoint translation
