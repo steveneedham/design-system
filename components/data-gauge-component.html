@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html data-theme="sunny">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Data Collection Gauge</title>
+  <style>
+    :root[data-theme="sunny"] {
+      --ink: #FDF8F0;
+      --panel: #FBF5ED;
+      --panel-line: #EBE4DA;
+      --amber: #F4A538;
+      --amber-dim: #D9851F;
+      --teal: #2BA4A8;
+      --text: #1F1810;
+      --muted: #8B8370;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      padding: 40px 20px;
+      background: var(--ink);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, sans-serif;
+    }
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .gauge-card {
+      background: var(--panel);
+      border: 2px solid var(--panel-line);
+      border-radius: 8px;
+      padding: 40px 30px;
+      text-align: center;
+    }
+
+    .gauge-label {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--amber);
+      margin: 0 0 12px;
+      font-weight: 600;
+    }
+
+    .gauge-title {
+      font-size: 18px;
+      font-weight: 600;
+      margin: 0 0 30px;
+      color: var(--text);
+    }
+
+    /* SVG Gauge Container */
+    .gauge-svg-wrapper {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 30px;
+    }
+
+    .gauge-svg-wrapper svg {
+      width: 200px;
+      height: 200px;
+    }
+
+    /* Text overlay on gauge */
+    .gauge-text {
+      position: absolute;
+      width: 200px;
+      text-align: center;
+      transform: translateX(-50%);
+      left: 50%;
+    }
+
+    .gauge-percent {
+      font-size: 48px;
+      font-weight: 600;
+      line-height: 1;
+      color: var(--text);
+      margin: 0;
+    }
+
+    .gauge-count {
+      font-size: 13px;
+      color: var(--muted);
+      margin: 6px 0 0;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    }
+
+    .gauge-goal {
+      font-size: 13px;
+      color: var(--muted);
+      margin: 20px 0 0;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      letter-spacing: 0.05em;
+    }
+
+    .gauge-description {
+      font-size: 14px;
+      color: var(--muted);
+      margin: 0;
+      line-height: 1.5;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <div class="gauge-card">
+    <p class="gauge-label">Real-time progress</p>
+    <h2 class="gauge-title">Data Collection Status</h2>
+
+    <div class="gauge-svg-wrapper">
+      <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+        <!-- Background circle -->
+        <circle cx="100" cy="100" r="90" fill="none" stroke="#E8E4DA" stroke-width="3"/>
+
+        <!-- Progress track (teal, faint) -->
+        <circle cx="100" cy="100" r="90" fill="none" stroke="#2BA4A8" stroke-width="3" opacity="0.15"
+                stroke-dasharray="565" stroke-dashoffset="0"/>
+
+        <!-- Progress fill (amber) - 42% -->
+        <circle cx="100" cy="100" r="90" fill="none" stroke="#F4A538" stroke-width="3"
+                stroke-dasharray="237.3 565" stroke-dashoffset="0"
+                stroke-linecap="round"
+                transform="rotate(-90 100 100)"/>
+
+        <!-- Center accent dot -->
+        <circle cx="100" cy="100" r="8" fill="#F4A538"/>
+      </svg>
+    </div>
+
+    <p class="gauge-percent" style="margin: 0 0 6px;">42%</p>
+    <p class="gauge-count">42 receipts submitted</p>
+    <p class="gauge-goal">Goal: 100 submissions</p>
+
+    <p class="gauge-description" style="margin-top: 30px;">
+      Help riders make smarter operator choices. Share your receipt data to expand this research.
+    </p>
+  </div>
+</div>
+
+</body>
+</html>
