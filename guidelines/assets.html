@@ -18,13 +18,13 @@
     .catalog-kicker{text-transform:uppercase;color:var(--accent-ops)}
     .catalog h1{font-family:var(--font-display);font-weight:500;font-size:var(--text-hero);line-height:var(--leading-hero);margin:.8rem 0 1rem}
     .catalog-intro{max-width:58ch;color:var(--text-muted)}
-    .theme-switch{display:flex;gap:.75rem;margin-top:2rem}
-    .theme-switch button{
+    .theme-controls{display:flex;gap:.75rem;margin-top:2rem}
+    .theme-controls button{
       appearance:none;border:var(--border-width) solid var(--border-default);
       border-radius:var(--radius-sm);background:transparent;color:var(--text-primary);
       font:var(--text-mono-sm) var(--font-mono);padding:.55rem .8rem;cursor:pointer
     }
-    .theme-switch button[aria-pressed="true"]{border-color:var(--accent-ops);color:var(--accent-ops)}
+    .theme-controls button[aria-pressed="true"]{border-color:var(--accent-ops);color:var(--accent-ops)}
     .asset-section{max-width:64rem;margin:0 auto 4rem}
     .asset-section h2{font-family:var(--font-display);font-size:var(--text-h2);font-weight:500;margin:0 0 .5rem}
     .theme-note{color:var(--text-muted);margin:0 0 1.5rem}
@@ -48,7 +48,7 @@
       <div class="catalog-kicker">Foundation / Assets</div>
       <h1>One visual language,<br><em>three surfaces.</em></h1>
       <p class="catalog-intro">Canonical marks and functional glyphs for the dark portfolio surface, warm paper surface, and bright sunny variant. Paths shown below are stable repository paths. Usage must also meet the <a href="./accessibility.html">accessibility acceptance layer</a>: meaningful graphics need text alternatives; decorative marks use empty alternative text.</p>
-      <div class="theme-switch" aria-label="Preview surface">
+      <div class="theme-controls" aria-label="Preview surface">
         <button type="button" data-theme-choice="dark" aria-pressed="true">Dark surface</button>
         <button type="button" data-theme-choice="paper" aria-pressed="false">Paper surface</button>
         <button type="button" data-theme-choice="sunny" aria-pressed="false">Sunny surface</button>
@@ -128,7 +128,7 @@
   <script src="../scripts/components.js"></script>
   <script>
     // Theme switcher for asset catalog
-    const themeButtons = document.querySelectorAll('.theme-switch button');
+    const themeButtons = document.querySelectorAll('.theme-controls button');
     themeButtons.forEach(button => {
       button.addEventListener('click', () => {
         const theme = button.dataset.themeChoice;
