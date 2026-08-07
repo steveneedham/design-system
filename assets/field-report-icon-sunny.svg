@@ -1,0 +1,45 @@
+<svg viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background circle -->
+  <circle cx="128" cy="128" r="120" fill="#FDF8F0" stroke="#F4A538" stroke-width="2"/>
+
+  <!-- Clipboard base -->
+  <rect x="60" y="50" width="136" height="160" rx="8" fill="none" stroke="#1F1810" stroke-width="2.5"/>
+
+  <!-- Clipboard clip -->
+  <rect x="75" y="35" width="106" height="20" rx="3" fill="#F4A538" stroke="#F4A538" stroke-width="2"/>
+  <circle cx="95" cy="45" r="2.5" fill="#FDF8F0"/>
+  <circle cx="161" cy="45" r="2.5" fill="#FDF8F0"/>
+
+  <!-- Data visualization bars (representing pricing data) -->
+  <g transform="translate(75, 75)">
+    <!-- Bar 1 -->
+    <rect x="8" y="35" width="12" height="45" fill="#F4A538" stroke="#1F1810" stroke-width="1.5"/>
+    <!-- Bar 2 -->
+    <rect x="28" y="25" width="12" height="55" fill="#F4A538" opacity="0.7" stroke="#1F1810" stroke-width="1.5"/>
+    <!-- Bar 3 -->
+    <rect x="48" y="15" width="12" height="65" fill="#F4A538" opacity="0.5" stroke="#1F1810" stroke-width="1.5"/>
+    <!-- Baseline -->
+    <line x1="0" y1="80" x2="75" y2="80" stroke="#1F1810" stroke-width="1.5"/>
+  </g>
+
+  <!-- Scooter silhouette (small, bottom right) -->
+  <g transform="translate(105, 155)">
+    <!-- Deck -->
+    <rect x="0" y="8" width="28" height="6" rx="2" fill="#1F1810"/>
+    <!-- Front wheel -->
+    <circle cx="8" cy="18" r="5" fill="none" stroke="#1F1810" stroke-width="1.5"/>
+    <!-- Back wheel -->
+    <circle cx="24" cy="18" r="5" fill="none" stroke="#1F1810" stroke-width="1.5"/>
+    <!-- Handlebar stem -->
+    <line x1="6" y1="8" x2="6" y2="-4" stroke="#1F1810" stroke-width="1.5"/>
+    <!-- Handlebar -->
+    <line x1="2" y1="-4" x2="10" y2="-4" stroke="#1F1810" stroke-width="1.5"/>
+  </g>
+
+  <!-- Document lines (representing data points) -->
+  <line x1="75" y1="125" x2="170" y2="125" stroke="#8B8370" stroke-width="1"/>
+  <line x1="75" y1="135" x2="145" y2="135" stroke="#8B8370" stroke-width="1"/>
+
+  <!-- Accent corner mark -->
+  <path d="M 195 50 L 195 65 M 195 50 L 210 50" stroke="#F4A538" stroke-width="2" fill="none" stroke-linecap="round"/>
+</svg>

@@ -1,0 +1,68 @@
+<svg viewBox="0 0 512 256" xmlns="http://www.w3.org/2000/svg">
+  <!-- BEAKER ICON (Left) -->
+  <g transform="translate(0, 0)">
+    <!-- Background circle -->
+    <circle cx="128" cy="128" r="120" fill="#FDF8F0" stroke="#F4A538" stroke-width="2"/>
+
+    <!-- Beaker body -->
+    <path d="M 95 60 L 100 85 L 100 180 Q 100 195 115 195 L 141 195 Q 156 195 156 180 L 156 85 L 161 60 Z"
+          fill="none" stroke="#1F1810" stroke-width="2.5" stroke-linejoin="round"/>
+
+    <!-- Beaker rim (teal) -->
+    <line x1="95" y1="60" x2="161" y2="60" stroke="#2BA4A8" stroke-width="2.5" stroke-linecap="round"/>
+
+    <!-- Liquid level lower (teal) -->
+    <path d="M 102 150 L 102 180 Q 102 193 115 193 L 141 193 Q 154 193 154 180 L 154 150 Z"
+          fill="#2BA4A8" opacity="0.5"/>
+
+    <!-- Liquid level upper (amber) -->
+    <path d="M 102 130 L 102 150 Z" fill="none"/>
+    <path d="M 102 130 Q 102 135 105 138 L 151 138 Q 154 135 154 130 Z"
+          fill="#F4A538" opacity="0.6"/>
+
+    <!-- Measurement marks -->
+    <line x1="90" y1="105" x2="97" y2="105" stroke="#F4A538" stroke-width="1.5"/>
+    <line x1="90" y1="130" x2="97" y2="130" stroke="#2BA4A8" stroke-width="1.5"/>
+    <line x1="90" y1="155" x2="97" y2="155" stroke="#F4A538" stroke-width="1.5"/>
+
+    <!-- Pour spout (teal) -->
+    <path d="M 165 105 Q 175 110 180 120" stroke="#2BA4A8" stroke-width="2" fill="none" stroke-linecap="round"/>
+
+    <!-- Accent corner (mixed) -->
+    <path d="M 195 50 L 195 65 M 195 50 L 210 50" stroke="#2BA4A8" stroke-width="2" fill="none" stroke-linecap="round"/>
+  </g>
+
+  <!-- TEST TUBE ICON (Right) -->
+  <g transform="translate(256, 0)">
+    <!-- Background circle -->
+    <circle cx="128" cy="128" r="120" fill="#FDF8F0" stroke="#2BA4A8" stroke-width="2"/>
+
+    <!-- Tube body -->
+    <path d="M 115 50 L 115 145 Q 115 165 128 165 Q 141 165 141 145 L 141 50 Z"
+          fill="none" stroke="#1F1810" stroke-width="2.5" stroke-linejoin="round"/>
+
+    <!-- Tube cap/stopper (amber) -->
+    <rect x="108" y="40" width="40" height="12" rx="2" fill="#F4A538" stroke="#1F1810" stroke-width="2"/>
+    <rect x="110" y="35" width="36" height="6" rx="1" fill="#F4A538" opacity="0.7"/>
+
+    <!-- Liquid level lower (teal) -->
+    <path d="M 117 125 L 117 145 Q 117 163 128 163 Q 139 163 139 145 L 139 125 Z"
+          fill="#2BA4A8" opacity="0.5"/>
+
+    <!-- Liquid level upper (amber) -->
+    <path d="M 117 105 L 117 125 Q 117 128 120 130 L 136 130 Q 139 128 139 125 L 139 105 Z"
+          fill="#F4A538" opacity="0.5"/>
+
+    <!-- Bubbles in liquid (mixed colors) -->
+    <circle cx="122" cy="120" r="1.5" fill="#F4A538" opacity="0.8"/>
+    <circle cx="134" cy="135" r="1.5" fill="#2BA4A8" opacity="0.8"/>
+    <circle cx="128" cy="145" r="1.5" fill="#F4A538" opacity="0.8"/>
+
+    <!-- Reaction indicator (both colors) -->
+    <line x1="110" y1="110" x2="105" y2="105" stroke="#F4A538" stroke-width="1.5" stroke-linecap="round"/>
+    <line x1="146" y1="120" x2="151" y2="115" stroke="#2BA4A8" stroke-width="1.5" stroke-linecap="round"/>
+
+    <!-- Accent corner (mixed) -->
+    <path d="M 195 50 L 195 65 M 195 50 L 210 50" stroke="#F4A538" stroke-width="2" fill="none" stroke-linecap="round"/>
+  </g>
+</svg>

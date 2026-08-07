@@ -1,4 +1,77 @@
-/* SUNNY THEME OVERRIDES — Visual adaptations for bright variant */
+/* ==========================================================================
+   sunny.css — Ops & Systems design system, "sunny" theme variant
+   github.com/steveneedham/design-system
+
+   A bright, bold treatment of the design system for exceptional occasions
+   and special edition runs. Inverts the dark theme to a light, warm
+   background with vibrant amber as the primary accent.
+
+   This is a TOKEN-OVERRIDE + COMPONENT-OVERRIDE file. Every component
+   rule in styles.css (.nav, .hero, .stop, .footer, etc.) already reads
+   color through the base tokens (--ink, --text, --amber, --teal, ...).
+   Overriding the token layer here re-skins the whole site. Component-
+   specific rules add visual enhancements (2px borders, gradients, shadows)
+   that define the sunny aesthetic.
+
+   USAGE
+   -----
+   1. Load AFTER styles.css:
+        <link rel="stylesheet" href="styles.css">
+        <link rel="stylesheet" href="sunny.css">
+
+   2. Opt in per-page/per-element with data-theme="sunny" attribute
+      (recommended on <html> so it wins the cascade everywhere):
+        <html data-theme="sunny">
+
+   3. Optional theme toggle (vanilla JS):
+        document.documentElement.setAttribute('data-theme', 'sunny');
+        // to revert: document.documentElement.removeAttribute('data-theme');
+
+   DESIGN NOTES
+   ------------
+   - Base colors are warm and light: cream ink (#FDF8F0), warm beige panels
+     (#FBF5ED), dark brown text (#1F1810) for max contrast on light surfaces.
+   - Amber (#F4A538) is the bright, energetic primary accent.
+     Teal (#2BA4A8) is the secondary accent (sys/technical).
+   - All key components use 2px borders in the accent colors for visual
+     boldness and clarity.
+   - Shadows use warm amber tint (rgba(244, 165, 56, 0.1)) to complement
+     the bright theme.
+   - Hero sections include a gradient background (135deg amber fade) with
+     subtle radial glow for depth and visual impact.
+   ========================================================================== */
+
+:root[data-theme="sunny"] {
+  /* Surfaces */
+  --ink: #FDF8F0;           /* warm cream, page background */
+  --panel: #FBF5ED;         /* light cream, component background */
+  --panel-line: #EBE4DA;    /* warm beige, borders/dividers */
+
+  /* Text */
+  --text: #1F1810;          /* very dark brown, primary text */
+  --muted: #8B8370;         /* warm gray, secondary text */
+  --muted-dim: #6B6250;     /* darker warm gray, tertiary text */
+
+  /* Accents */
+  --amber: #F4A538;         /* bright, energetic ops accent */
+  --amber-dim: #D9851F;     /* dimmed state */
+  --teal: #2BA4A8;          /* secondary sys accent */
+  --teal-dim: #1F7A7E;      /* dimmed state */
+
+  /* Status colors */
+  --status-success: #4FD1C5;
+  --status-attention: #F4A538;
+  --status-risk: #E05252;
+  --status-neutral: #8B8370;
+
+  /* Semantic aliases resolve automatically via styles.css's :root chain
+     (--surface-page: var(--ink), --text-primary: var(--text), etc.) —
+     nothing further to override. --focus-ring inherits the new --amber. */
+}
+
+/* ==========================================================================
+   Component Overrides for Sunny Theme
+   ========================================================================== */
 
 /* Nav styling for sunny theme */
 [data-theme="sunny"] .nav {
@@ -213,6 +286,6 @@
 }
 
 [data-theme="sunny"] .eyebrow.alert {
-  color: var(--red);
-  border-bottom-color: var(--red);
+  color: var(--status-risk);
+  border-bottom-color: var(--status-risk);
 }
