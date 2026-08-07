@@ -1,0 +1,218 @@
+/* SUNNY THEME OVERRIDES — Visual adaptations for bright variant */
+
+/* Nav styling for sunny theme */
+[data-theme="sunny"] .nav {
+  background: rgba(253, 248, 240, 0.88);
+  border-bottom-color: var(--amber);
+  border-bottom-width: 2px;
+  box-shadow: 0 2px 8px rgba(244, 165, 56, 0.08);
+}
+
+[data-theme="sunny"] .nav-name {
+  color: var(--amber);
+  font-weight: 600;
+}
+
+[data-theme="sunny"] .nav-links a:hover {
+  color: var(--amber);
+  font-weight: 600;
+}
+
+/* Signal strip */
+[data-theme="sunny"] .signal-strip {
+  background: var(--panel);
+  border-bottom-color: var(--panel-line);
+}
+
+/* Cover/hero section with sunny gradient */
+[data-theme="sunny"] [data-section="hero"],
+[data-theme="sunny"] .cover {
+  background: linear-gradient(135deg, #FFE4A3 0%, #FFD478 50%, #FFFAED 100%);
+}
+
+[data-theme="sunny"] [data-section="hero"]::before,
+[data-theme="sunny"] .cover::before {
+  content: '';
+  position: absolute;
+  top: -30%;
+  right: -5%;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(255, 212, 120, 0.2) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Ensure content sits above gradient backdrop */
+[data-theme="sunny"] h1,
+[data-theme="sunny"] .cover-eyebrow {
+  position: relative;
+  z-index: 1;
+}
+
+/* Emphasized text in sunny theme */
+[data-theme="sunny"] h1 em,
+[data-theme="sunny"] [data-section="hero"] h1 em {
+  color: var(--amber);
+  font-style: italic;
+}
+
+/* KPI cards with sunny borders */
+[data-theme="sunny"] .kpi {
+  border: 2px solid var(--amber);
+  background: var(--panel);
+  box-shadow: 0 4px 12px rgba(244, 165, 56, 0.1);
+}
+
+/* Tables with sunny header */
+[data-theme="sunny"] .data-table th {
+  background: var(--amber);
+  color: white;
+  border-bottom: 2px solid var(--amber);
+  font-weight: 700;
+}
+
+[data-theme="sunny"] .data-table th.teal {
+  background: var(--teal);
+}
+
+[data-theme="sunny"] .data-table tr:nth-child(even) td {
+  background: rgba(244, 165, 56, 0.05);
+}
+
+[data-theme="sunny"] .data-table .total td {
+  background: var(--amber);
+  color: white;
+  font-weight: 700;
+}
+
+/* Insight cards */
+[data-theme="sunny"] .insight {
+  border: 2px solid var(--amber);
+  border-left: 4px solid var(--amber);
+  background: var(--panel);
+  box-shadow: 0 4px 12px rgba(244, 165, 56, 0.08);
+}
+
+[data-theme="sunny"] .insight.sys {
+  border-color: var(--teal);
+  border-left-color: var(--teal);
+}
+
+[data-theme="sunny"] .insight.alert {
+  border-color: var(--red);
+  border-left-color: var(--red);
+}
+
+/* Trike section styling */
+[data-theme="sunny"] .trike-section {
+  border: 2px solid var(--amber);
+  background: var(--panel);
+  box-shadow: 0 8px 24px rgba(244, 165, 56, 0.12);
+}
+
+[data-theme="sunny"] .trike-header {
+  background: linear-gradient(90deg, var(--amber) 0%, #F0B04F 100%);
+  border-bottom: 2px solid var(--amber-dim);
+  color: white;
+}
+
+[data-theme="sunny"] .trike-header h3 {
+  color: white;
+  font-weight: 600;
+}
+
+[data-theme="sunny"] .trike-stats {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+[data-theme="sunny"] #playBtn {
+  background: var(--amber);
+  color: white;
+  font-weight: 700;
+  box-shadow: 0 4px 12px rgba(244, 165, 56, 0.3);
+}
+
+[data-theme="sunny"] #playBtn:hover {
+  background: #f0b04f;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(244, 165, 56, 0.4);
+}
+
+[data-theme="sunny"] #trafficBtn {
+  border: 2px solid var(--panel-line);
+}
+
+[data-theme="sunny"] #trafficBtn:hover {
+  border-color: var(--amber);
+  color: var(--amber);
+}
+
+[data-theme="sunny"] .trike-map {
+  background: #FEFAF0;
+}
+
+/* Terms card */
+[data-theme="sunny"] .terms-card {
+  border: 2px solid var(--amber);
+  background: var(--panel);
+}
+
+[data-theme="sunny"] .terms-label {
+  background: var(--amber);
+  color: white;
+  font-weight: 700;
+}
+
+/* Sign-off section */
+[data-theme="sunny"] .signoff {
+  border-top: 2px solid var(--amber);
+}
+
+[data-theme="sunny"] .signoff-name {
+  color: var(--amber);
+  font-weight: 700;
+}
+
+[data-theme="sunny"] .signoff-note {
+  background: rgba(244, 165, 56, 0.08);
+  border: 2px solid var(--amber);
+  border-left: 4px solid var(--amber);
+  color: var(--text);
+}
+
+/* Footer */
+[data-theme="sunny"] footer {
+  border-top: 2px solid var(--amber);
+  background: var(--panel);
+  font-weight: 500;
+}
+
+/* Links in sunny theme */
+[data-theme="sunny"] a {
+  color: var(--amber);
+  text-decoration: none;
+  transition: color var(--motion-fast);
+}
+
+[data-theme="sunny"] a:hover {
+  color: var(--amber-dim);
+}
+
+/* Eyebrows and labels */
+[data-theme="sunny"] .eyebrow {
+  color: var(--amber);
+  border-bottom: 2px solid var(--amber);
+  font-weight: 600;
+}
+
+[data-theme="sunny"] .eyebrow.sys {
+  color: var(--teal);
+  border-bottom-color: var(--teal);
+}
+
+[data-theme="sunny"] .eyebrow.alert {
+  color: var(--red);
+  border-bottom-color: var(--red);
+}
