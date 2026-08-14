@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Urban Strategist Header — Design System</title>
+  <link rel="stylesheet" href="../styles.css">
+  <style>
+    body {
+      margin: 0;
+      background: var(--surface-page);
+    }
+    .demo-container {
+      padding: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .header-frame {
+      border: 1px solid var(--border-default);
+      border-radius: 8px;
+      overflow: hidden;
+      margin: 2rem 0;
+    }
+    .header-frame iframe {
+      width: 100%;
+      height: 600px;
+      border: none;
+      display: block;
+    }
+    h1 {
+      font-family: var(--font-display);
+      color: var(--text-primary);
+    }
+    p {
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+    .code-block {
+      background: var(--panel);
+      border: 1px solid var(--border-default);
+      border-radius: 6px;
+      padding: 1rem;
+      overflow-x: auto;
+      margin: 1rem 0;
+    }
+    .code-block code {
+      font-family: var(--font-mono);
+      font-size: 0.875rem;
+      color: var(--teal);
+    }
+  </style>
+</head>
+<body>
+
+<div class="demo-container">
+  <h1>Urban Strategist Header Component</h1>
+  <p>Reusable header component with Scioto River map background, built on the design system.</p>
+
+  <h2>Live Demo</h2>
+  <div class="header-frame">
+    <iframe src="../components/urban-strategist-header.html" title="Urban Strategist Header Component"></iframe>
+  </div>
+
+  <h2>Usage</h2>
+  <p>To use this component in your own pages:</p>
+
+  <h3>Option 1: Copy the component</h3>
+  <p>Copy the HTML and CSS from <code>components/urban-strategist-header.html</code> and customize as needed.</p>
+
+  <h3>Option 2: Embed via iframe</h3>
+  <div class="code-block">
+    <code>&lt;iframe src="https://steveneedham.github.io/design-system/components/urban-strategist-header.html" width="100%" height="600" frameborder="0"&gt;&lt;/iframe&gt;</code>
+  </div>
+
+  <h3>Customization</h3>
+  <ul>
+    <li><strong>Logo:</strong> Replace the placeholder SVG with your mark</li>
+    <li><strong>Heading:</strong> Update the h1 text and use <code>.accent</code> spans for amber emphasis</li>
+    <li><strong>Tagline:</strong> Edit the paragraph text</li>
+    <li><strong>Buttons:</strong> Update href and text for CTAs</li>
+    <li><strong>Map:</strong> Change the background-image URL to use your own map</li>
+  </ul>
+
+  <h2>Design System Integration</h2>
+  <p>The component uses the design system's core tokens:</p>
+  <ul>
+    <li>Colors: <code>--ink</code>, <code>--amber</code>, <code>--teal</code>, <code>--text</code>, <code>--muted</code></li>
+    <li>Typography: Fraunces (display), Inter (body), JetBrains Mono (mono)</li>
+    <li>Responsive breakpoint at 640px for mobile</li>
+  </ul>
+
+</div>
+
+</body>
+</html>
