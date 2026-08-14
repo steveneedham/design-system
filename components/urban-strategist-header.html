@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Urban Strategist Header Component</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Fraunces:wght@400;500;600&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap');
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --ink: #14171C;
+      --panel: #1B1F27;
+      --panel-line: #282E38;
+      --amber: #E8A33D;
+      --amber-dim: #7A5B2C;
+      --teal: #4FD1C5;
+      --teal-dim: #2C6A64;
+      --text: #EDEAE2;
+      --muted: #8B93A1;
+      --muted-dim: #5B6270;
+
+      --font-display: 'Fraunces', serif;
+      --font-body: 'Inter', sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+
+    body {
+      font-family: var(--font-body);
+      background: var(--ink);
+      color: var(--text);
+    }
+
+    /* ========== Header Component ========== */
+    .urban-strategist-header {
+      position: relative;
+      overflow: hidden;
+      min-height: 480px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 4rem 2rem;
+      background: var(--ink);
+    }
+
+    /* Map background with overlay */
+    .header-background {
+      position: absolute;
+      inset: 0;
+      background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><defs><pattern id="map" x="0" y="0" width="400" height="400" patternUnits="userSpaceOnUse"><path d="M 0 0 L 400 0 L 400 400 L 0 400 Z" fill="%23282E38" stroke="%231B1F27" stroke-width="1"/><circle cx="100" cy="100" r="8" fill="%235B6270" opacity="0.4"/><circle cx="300" cy="250" r="12" fill="%235B6270" opacity="0.3"/><circle cx="150" cy="350" r="6" fill="%235B6270" opacity="0.5"/><path d="M 50 200 Q 100 150 150 200" fill="none" stroke="%235B6270" stroke-width="0.5" opacity="0.3"/><path d="M 200 50 L 250 150 L 200 250" fill="none" stroke="%235B6270" stroke-width="0.5" opacity="0.3"/></pattern></defs><rect width="1200" height="600" fill="%23282E38"/><rect width="1200" height="600" fill="url(%23map)"/></svg>');
+      background-size: 400px 400px;
+      opacity: 0.15;
+      z-index: 1;
+    }
+
+    /* Scrim for text readability */
+    .header-scrim {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        135deg,
+        rgba(20, 23, 28, 0.85) 0%,
+        rgba(20, 23, 28, 0.75) 50%,
+        rgba(20, 23, 28, 0.85) 100%
+      );
+      z-index: 2;
+    }
+
+    /* Content wrapper */
+    .header-content {
+      position: relative;
+      z-index: 3;
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    /* Logo/mark */
+    .header-mark {
+      margin-bottom: 2rem;
+      height: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .header-mark svg,
+    .header-mark img {
+      max-height: 100%;
+      width: auto;
+      display: block;
+    }
+
+    /* Main heading */
+    .header-title {
+      font-family: var(--font-display);
+      font-size: clamp(2.5rem, 8vw, 4rem);
+      font-weight: 500;
+      line-height: 1.2;
+      margin-bottom: 1rem;
+      color: var(--text);
+      letter-spacing: -0.02em;
+    }
+
+    /* Accent word */
+    .header-title .accent {
+      color: var(--amber);
+      font-weight: 600;
+    }
+
+    /* Subtitle/tagline */
+    .header-tagline {
+      font-family: var(--font-body);
+      font-size: clamp(1rem, 2vw, 1.25rem);
+      line-height: 1.6;
+      color: var(--muted);
+      margin-bottom: 2.5rem;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* CTA buttons */
+    .header-ctas {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .header-ctas a {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.875rem 1.5rem;
+      font-family: var(--font-mono);
+      font-size: 0.875rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border-radius: 4px;
+      transition: all 200ms ease;
+      cursor: pointer;
+    }
+
+    .header-ctas a.primary {
+      background: var(--amber);
+      color: var(--ink);
+      border: 2px solid var(--amber);
+    }
+
+    .header-ctas a.primary:hover {
+      background: transparent;
+      color: var(--amber);
+      box-shadow: 0 0 20px rgba(232, 163, 61, 0.3);
+    }
+
+    .header-ctas a.secondary {
+      background: transparent;
+      color: var(--teal);
+      border: 2px solid var(--teal);
+    }
+
+    .header-ctas a.secondary:hover {
+      background: var(--teal);
+      color: var(--ink);
+      box-shadow: 0 0 20px rgba(79, 209, 197, 0.3);
+    }
+
+    /* Eyebrow/label */
+    .header-eyebrow {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 1.5rem;
+      display: block;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 640px) {
+      .urban-strategist-header {
+        min-height: 380px;
+        padding: 3rem 1.5rem;
+      }
+
+      .header-title {
+        font-size: clamp(2rem, 7vw, 2.5rem);
+      }
+
+      .header-tagline {
+        font-size: 1rem;
+      }
+
+      .header-ctas {
+        gap: 0.75rem;
+      }
+
+      .header-ctas a {
+        padding: 0.75rem 1.25rem;
+        font-size: 0.8rem;
+      }
+    }
+
+    /* ========== Demo Styles (remove when integrating) ========== */
+    .demo-section {
+      padding: 4rem 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .demo-section h2 {
+      font-family: var(--font-display);
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+      color: var(--amber);
+    }
+
+    .demo-section p {
+      font-size: 1rem;
+      line-height: 1.6;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+
+    .demo-code {
+      background: var(--panel);
+      border: 1px solid var(--panel-line);
+      border-radius: 6px;
+      padding: 1.5rem;
+      overflow-x: auto;
+      margin: 2rem 0;
+    }
+
+    .demo-code code {
+      font-family: var(--font-mono);
+      font-size: 0.875rem;
+      color: var(--teal);
+      line-height: 1.6;
+    }
+  </style>
+</head>
+<body>
+
+<!-- ========== REUSABLE HEADER COMPONENT ========== -->
+<header class="urban-strategist-header">
+  <div class="header-background"></div>
+  <div class="header-scrim"></div>
+
+  <div class="header-content">
+    <!-- Optional eyebrow label -->
+    <span class="header-eyebrow">Operations & Systems</span>
+
+    <!-- Mark/logo area (replace with your SVG or image) -->
+    <div class="header-mark">
+      <!-- Placeholder: replace with consulting/urban-strategist-lockups.svg or your mark -->
+      <svg viewBox="0 0 120 48" xmlns="http://www.w3.org/2000/svg">
+        <text x="60" y="28" font-family="Fraunces" font-size="24" font-weight="500" text-anchor="middle" fill="#E8A33D">us</text>
+      </svg>
+    </div>
+
+    <!-- Main heading -->
+    <h1 class="header-title">
+      <span class="accent">urban</span> strategist
+    </h1>
+
+    <!-- Tagline -->
+    <p class="header-tagline">
+      Field operations leadership meets hands-on systems work. Building the dashboards, playbooks, and automation that make operations legible.
+    </p>
+
+    <!-- CTA buttons -->
+    <div class="header-ctas">
+      <a href="#contact" class="primary">Get in touch</a>
+      <a href="#work" class="secondary">View work</a>
+    </div>
+  </div>
+</header>
+
+<!-- ========== USAGE DOCUMENTATION ========== -->
+<section class="demo-section">
+  <h2>How to use this header component</h2>
+
+  <p><strong>Integration:</strong> Copy the HTML and CSS from the <code>&lt;header&gt;</code> element above and drop it into your page. Update the content to match your page context.</p>
+
+  <h3 style="font-family: var(--font-display); margin-top: 2rem; margin-bottom: 1rem; color: var(--text);">Customization</h3>
+
+  <p><strong>Logo/Mark:</strong> Replace the placeholder SVG in <code>.header-mark</code> with the consulting lockup SVG:</p>
+
+  <div class="demo-code">
+    <code>&lt;img src="https://raw.githubusercontent.com/steveneedham/design-system/main/consulting/urban-strategist-lockups.svg" alt="Urban Strategist"&gt;</code>
+  </div>
+
+  <p><strong>Heading:</strong> Update <code>.header-title</code> text. Wrap key words in <code>&lt;span class="accent"&gt;</code> for amber emphasis.</p>
+
+  <p><strong>Tagline:</strong> Edit the paragraph in <code>.header-tagline</code>.</p>
+
+  <p><strong>Buttons:</strong> Update <code>.header-ctas</code> links. Use <code>class="primary"</code> for amber CTAs and <code>class="secondary"</code> for teal.</p>
+
+  <p><strong>Background:</strong> The map pattern is procedurally generated as an SVG data URI. To use a real map image, replace the <code>background-image</code> URL in <code>.header-background</code> with your map PNG/JPG path.</p>
+
+  <h3 style="font-family: var(--font-display); margin-top: 2rem; margin-bottom: 1rem; color: var(--text);">Design system tokens used</h3>
+
+  <ul style="list-style: none; color: var(--muted); line-height: 2;">
+    <li><code>--ink</code>: Background (#14171C)</li>
+    <li><code>--amber</code>: Primary accent (#E8A33D) — operations/emphasis</li>
+    <li><code>--teal</code>: Secondary accent (#4FD1C5) — systems/alternatives</li>
+    <li><code>--text</code>: Primary text (#EDEAE2)</li>
+    <li><code>--muted</code>: Secondary text (#8B93A1)</li>
+    <li><code>--panel-line</code>: Borders (#282E38)</li>
+  </ul>
+
+  <p style="margin-top: 2rem;"><strong>Responsive:</strong> Component uses <code>clamp()</code> for fluid typography and breakpoints at 640px for mobile optimization.</p>
+
+</section>
+
+</body>
+</html>
