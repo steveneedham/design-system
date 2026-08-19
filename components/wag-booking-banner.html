@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wag Booking Banner</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:wght@400;500;600&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap');
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Inter', sans-serif;
+    background: #14171C;
+    padding: 3rem 1.5rem;
+  }
+
+  .wag-demo-stack { display: flex; flex-direction: column; gap: 2rem; max-width: 900px; margin: 0 auto; }
+
+  /* ---------- Layout (shared across all themes) ---------- */
+  .wag-banner {
+    display: flex;
+    gap: 2.5rem;
+    align-items: stretch;
+    padding: 2.25rem;
+    border-radius: 10px;
+  }
+
+  .wag-banner-left { flex: 1 1 60%; display: flex; flex-direction: column; justify-content: center; min-width: 0; }
+  .wag-banner-right { flex: 0 0 260px; display: flex; flex-direction: column; gap: 1.1rem; padding: 1.5rem; border-radius: 8px; }
+
+  .wag-badge-row { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.1rem; }
+  .wag-badge {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 0.35rem 0.65rem;
+    border-radius: 20px;
+    white-space: nowrap;
+  }
+
+  .wag-heading {
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    line-height: 1.25;
+    margin-bottom: 0.9rem;
+  }
+  .wag-heading em { font-style: italic; }
+
+  .wag-bio { font-size: 0.95rem; line-height: 1.6; max-width: 46ch; margin-bottom: 1.5rem; }
+
+  .wag-kpi-row { display: flex; gap: 2rem; padding-top: 1.25rem; border-top: 1px solid; }
+  .wag-kpi-val { font-family: 'Fraunces', serif; font-weight: 500; font-size: 1.35rem; line-height: 1; margin-bottom: 0.3rem; }
+  .wag-kpi-lbl { font-family: 'JetBrains Mono', monospace; font-size: 0.68rem; letter-spacing: 0.05em; text-transform: uppercase; }
+
+  .wag-profile-header { display: flex; align-items: center; gap: 0.75rem; }
+  .wag-avatar, .wag-avatar-placeholder {
+    width: 44px; height: 44px; border-radius: 50%; flex: none;
+    object-fit: cover;
+  }
+  .wag-avatar-placeholder {
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Fraunces', serif; font-weight: 500; font-size: 1rem;
+  }
+  .wag-profile-name { font-family: 'Fraunces', serif; font-size: 1.1rem; font-weight: 500; margin: 0; }
+  .wag-profile-loc { font-family: 'JetBrains Mono', monospace; font-size: 0.68rem; margin-top: 0.2rem; }
+
+  .wag-qr-card { display: flex; flex-direction: column; align-items: center; gap: 0.6rem; padding: 1rem; border-radius: 6px; text-align: center; }
+  .wag-qr-img, .wag-qr-placeholder { width: 100px; height: 100px; border-radius: 4px; }
+  .wag-qr-placeholder {
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'JetBrains Mono', monospace; font-size: 0.65rem; letter-spacing: 0.05em;
+    border: 1px dashed currentColor; opacity: 0.6;
+  }
+  .wag-qr-note { font-family: 'JetBrains Mono', monospace; font-size: 0.62rem; letter-spacing: 0.04em; text-transform: uppercase; }
+
+  .wag-cta-btn {
+    display: block; text-align: center;
+    font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; font-weight: 600;
+    letter-spacing: 0.03em; text-decoration: none;
+    padding: 0.85rem 1rem; border-radius: 6px;
+    transition: transform 200ms ease, box-shadow 200ms ease;
+  }
+  .wag-cta-btn:hover { transform: translateY(-2px); }
+
+  @media (max-width: 700px) {
+    .wag-banner { flex-direction: column; }
+    .wag-banner-right { flex: none; }
+  }
+
+  /* ---------- Theme: sunny ---------- */
+  .wag-banner--sunny {
+    background: linear-gradient(135deg, #FDF8F0 0%, #FFFAED 100%);
+    border: 1px solid #EBE4DA;
+  }
+  .wag-banner--sunny .wag-heading, .wag-banner--sunny .wag-profile-name { color: #1F1810; }
+  .wag-banner--sunny .wag-heading em { color: #F4A538; }
+  .wag-banner--sunny .wag-bio { color: #6B6250; }
+  .wag-banner--sunny .wag-kpi-row { border-color: #EBE4DA; }
+  .wag-banner--sunny .wag-kpi-val { color: #1F1810; }
+  .wag-banner--sunny .wag-kpi-val.accent { color: #D9851F; }
+  .wag-banner--sunny .wag-kpi-lbl { color: #8B8370; }
+  .wag-banner--sunny .wag-badge.gold { background: #FFE4A3; border: 1px solid #F4A538; color: #9C5B08; }
+  .wag-banner--sunny .wag-badge.teal { background: #DDF3F4; border: 1px solid #2BA4A8; color: #166E71; }
+  .wag-banner--sunny .wag-banner-right { background: #FFFFFF; border: 1px solid #EBE4DA; box-shadow: 0 4px 16px rgba(244,165,56,0.08); }
+  .wag-banner--sunny .wag-avatar, .wag-banner--sunny .wag-avatar-placeholder { border: 1.5px solid #2BA4A8; background: #DDF3F4; color: #166E71; }
+  .wag-banner--sunny .wag-profile-loc { color: #8B8370; }
+  .wag-banner--sunny .wag-qr-card { background: #FDF8F0; border: 1px solid #EBE4DA; }
+  .wag-banner--sunny .wag-qr-placeholder { color: #8B8370; }
+  .wag-banner--sunny .wag-qr-note { color: #8B8370; }
+  .wag-banner--sunny .wag-cta-btn { background: #F4A538; color: #1F1810; }
+  .wag-banner--sunny .wag-cta-btn:hover { box-shadow: 0 6px 20px rgba(244,165,56,0.35); }
+
+  /* ---------- Theme: paper ---------- */
+  .wag-banner--paper {
+    background: #F6F3EC;
+    border: 1px solid #DCD5C4;
+  }
+  .wag-banner--paper .wag-heading, .wag-banner--paper .wag-profile-name { color: #14171C; }
+  .wag-banner--paper .wag-heading em { color: #B5791F; }
+  .wag-banner--paper .wag-bio { color: #5D696D; }
+  .wag-banner--paper .wag-kpi-row { border-color: #DCD5C4; }
+  .wag-banner--paper .wag-kpi-val { color: #14171C; }
+  .wag-banner--paper .wag-kpi-val.accent { color: #B5791F; }
+  .wag-banner--paper .wag-kpi-lbl { color: #5D696D; }
+  .wag-banner--paper .wag-badge.gold { background: rgba(181,121,31,0.08); border: 1px solid #E0C38F; color: #B5791F; }
+  .wag-banner--paper .wag-badge.teal { background: rgba(31,132,120,0.08); border: 1px solid #A9E1D9; color: #1F8478; }
+  .wag-banner--paper .wag-banner-right { background: #FBFAF6; border: 1px solid #DCD5C4; box-shadow: 0 3px 12px rgba(0,0,0,0.04); }
+  .wag-banner--paper .wag-avatar, .wag-banner--paper .wag-avatar-placeholder { border: 1.5px solid #1F8478; background: rgba(31,132,120,0.08); color: #1F8478; }
+  .wag-banner--paper .wag-profile-loc { color: #5D696D; }
+  .wag-banner--paper .wag-qr-card { background: #F6F3EC; border: 1px solid #DCD5C4; }
+  .wag-banner--paper .wag-qr-placeholder { color: #5D696D; }
+  .wag-banner--paper .wag-qr-note { color: #5D696D; }
+  .wag-banner--paper .wag-cta-btn { background: #1F8478; color: #FFFFFF; }
+  .wag-banner--paper .wag-cta-btn:hover { box-shadow: 0 6px 20px rgba(31,132,120,0.3); }
+
+  /* ---------- Theme: dark ---------- */
+  .wag-banner--dark {
+    background: #14171C;
+    border: 1px solid #282E38;
+  }
+  .wag-banner--dark .wag-heading, .wag-banner--dark .wag-profile-name { color: #EDEAE2; }
+  .wag-banner--dark .wag-heading em { color: #E8A33D; }
+  .wag-banner--dark .wag-bio { color: #8B93A1; }
+  .wag-banner--dark .wag-kpi-row { border-color: #282E38; }
+  .wag-banner--dark .wag-kpi-val { color: #EDEAE2; }
+  .wag-banner--dark .wag-kpi-val.accent { color: #E8A33D; }
+  .wag-banner--dark .wag-kpi-lbl { color: #8B93A1; }
+  .wag-banner--dark .wag-badge.gold { background: rgba(232,163,61,0.12); border: 1px solid #7A5B2C; color: #E8A33D; }
+  .wag-banner--dark .wag-badge.teal { background: rgba(79,209,197,0.12); border: 1px solid #2C6A64; color: #4FD1C5; }
+  .wag-banner--dark .wag-banner-right { background: #1B1F27; border: 1px solid #282E38; }
+  .wag-banner--dark .wag-avatar, .wag-banner--dark .wag-avatar-placeholder { border: 1.5px solid #4FD1C5; background: rgba(79,209,197,0.12); color: #4FD1C5; }
+  .wag-banner--dark .wag-profile-loc { color: #8B93A1; }
+  .wag-banner--dark .wag-qr-card { background: #14171C; border: 1px solid #282E38; }
+  .wag-banner--dark .wag-qr-placeholder { color: #8B93A1; }
+  .wag-banner--dark .wag-qr-note { color: #8B93A1; }
+  .wag-banner--dark .wag-cta-btn { background: #4FD1C5; color: #14171C; }
+  .wag-banner--dark .wag-cta-btn:hover { box-shadow: 0 6px 20px rgba(79,209,197,0.3); }
+</style>
+</head>
+<body>
+
+<div class="wag-demo-stack">
+
+  <!-- ===== SUNNY ===== -->
+  <div class="wag-banner wag-banner--sunny">
+    <div class="wag-banner-left">
+      <div class="wag-badge-row">
+        <span class="wag-badge gold">★ 4.96 Top Rated</span>
+        <span class="wag-badge teal">✓ Background Checked</span>
+        <span class="wag-badge gold">High Demand</span>
+      </div>
+      <h2 class="wag-heading">Every walk is an adventure. <em>Safe, seen, and joyful.</em></h2>
+      <p class="wag-bio">Dedicated dog walking and sitting across Columbus with personalized attention and real-time photo updates.</p>
+      <div class="wag-kpi-row">
+        <div><div class="wag-kpi-val accent">4.96 ★</div><div class="wag-kpi-lbl">285 Reviews</div></div>
+        <div><div class="wag-kpi-val">313+</div><div class="wag-kpi-lbl">Walks &amp; Sits</div></div>
+        <div><div class="wag-kpi-val">52</div><div class="wag-kpi-lbl">Repeat Families</div></div>
+      </div>
+    </div>
+    <div class="wag-banner-right">
+      <div class="wag-profile-header">
+        <div class="wag-avatar-placeholder">SN</div>
+        <div>
+          <h3 class="wag-profile-name">Steven N.</h3>
+          <div class="wag-profile-loc">📍 Columbus, OH · 43206</div>
+        </div>
+      </div>
+      <div class="wag-qr-card">
+        <div class="wag-qr-placeholder">QR CODE</div>
+        <span class="wag-qr-note">Scan or tap below to book</span>
+      </div>
+      <a href="https://wagwalking.com" class="wag-cta-btn">Book Steven on Wag! →</a>
+    </div>
+  </div>
+
+  <!-- ===== PAPER ===== -->
+  <div class="wag-banner wag-banner--paper">
+    <div class="wag-banner-left">
+      <div class="wag-badge-row">
+        <span class="wag-badge gold">★ 4.96 Top Rated</span>
+        <span class="wag-badge teal">✓ Background Checked</span>
+        <span class="wag-badge gold">High Demand</span>
+      </div>
+      <h2 class="wag-heading">Thoughtful, reliable pet care with <em>accountable local roots.</em></h2>
+      <p class="wag-bio">German Village and Central Ohio pet parents count on clear communication and calm routines on every visit.</p>
+      <div class="wag-kpi-row">
+        <div><div class="wag-kpi-val accent">4.96 ★</div><div class="wag-kpi-lbl">285 Reviews</div></div>
+        <div><div class="wag-kpi-val">313+</div><div class="wag-kpi-lbl">Services</div></div>
+        <div><div class="wag-kpi-val">52</div><div class="wag-kpi-lbl">Repeat Clients</div></div>
+      </div>
+    </div>
+    <div class="wag-banner-right">
+      <div class="wag-profile-header">
+        <div class="wag-avatar-placeholder">SN</div>
+        <div>
+          <h3 class="wag-profile-name">Steven N.</h3>
+          <div class="wag-profile-loc">📍 Columbus, OH · 43206</div>
+        </div>
+      </div>
+      <div class="wag-qr-card">
+        <div class="wag-qr-placeholder">QR CODE</div>
+        <span class="wag-qr-note">Scan or tap below to book</span>
+      </div>
+      <a href="https://wagwalking.com" class="wag-cta-btn">Book Steven on Wag! →</a>
+    </div>
+  </div>
+
+  <!-- ===== DARK ===== -->
+  <div class="wag-banner wag-banner--dark">
+    <div class="wag-banner-left">
+      <div class="wag-badge-row">
+        <span class="wag-badge gold">★ 4.96 Top Rated</span>
+        <span class="wag-badge teal">✓ Background Checked</span>
+        <span class="wag-badge gold">High Demand</span>
+      </div>
+      <h2 class="wag-heading">Step out in style: where every walk is <em>safe and structured.</em></h2>
+      <p class="wag-bio">Attentive, reliable pet care in Columbus (43206). Dependable scheduling, GPS route updates, and calm routines for your dog.</p>
+      <div class="wag-kpi-row">
+        <div><div class="wag-kpi-val accent">4.96 ★</div><div class="wag-kpi-lbl">285 Reviews</div></div>
+        <div><div class="wag-kpi-val">313+</div><div class="wag-kpi-lbl">Services</div></div>
+        <div><div class="wag-kpi-val">52</div><div class="wag-kpi-lbl">Repeat Clients</div></div>
+      </div>
+    </div>
+    <div class="wag-banner-right">
+      <div class="wag-profile-header">
+        <div class="wag-avatar-placeholder">SN</div>
+        <div>
+          <h3 class="wag-profile-name">Steven N.</h3>
+          <div class="wag-profile-loc">📍 Columbus, OH · 43206</div>
+        </div>
+      </div>
+      <div class="wag-qr-card">
+        <div class="wag-qr-placeholder">QR CODE</div>
+        <span class="wag-qr-note">Scan or tap below to book</span>
+      </div>
+      <a href="https://wagwalking.com" class="wag-cta-btn">Book Steven on Wag! →</a>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>
