@@ -1,6 +1,6 @@
 {
   "name": "Steven Needham Design System",
-  "version": "1.3.0",
+  "version": "1.4.0",
   "themes": {
     "dark": {
       "stylesheet": "../styles.css",
@@ -48,12 +48,16 @@
   ],
   "functionalIcons": [
     "icons/bike.svg",
+    "icons/compass.svg",
+    "icons/console.svg",
+    "icons/dashboard.svg",
     "icons/document-download.svg",
     "icons/external-link.svg",
     "icons/map-layer.svg",
     "icons/network-hubs.svg",
     "icons/pin.svg",
-    "icons/scooter.svg"
+    "icons/scooter.svg",
+    "icons/stack.svg"
   ],
   "socialIcons": [
     "icons/bluesky.svg",

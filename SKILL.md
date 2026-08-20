@@ -62,7 +62,7 @@ The system serves one personal identity across four media:
 
 ## Iconography
 
-The brand's original core marks: **colored dots** (9–11px circles) for the timeline legend keys and stop markers, and a single unicode arrow (`→`) at the end of "View project" links. An expanded set of hairline-stroke, amber/teal-node icons was later built in this same idiom for social links (Linktree, Bluesky, GitHub, Instagram, LinkedIn, Facebook, TikTok, YouTube, WhatsApp, Threads) and functional glyphs (pin, external-link, map-layer, document-download, bike, scooter). No emoji, anywhere. New icons should keep the hairline-weight, single-accent-dot aesthetic — never an icon-font or filled/flat-illustration style.
+The brand's original core marks: **colored dots** (9–11px circles) for the timeline legend keys and stop markers, and a single unicode arrow (`→`) at the end of "View project" links. An expanded set of hairline-stroke, amber/teal-node icons was later built in this same idiom for social links (Linktree, Bluesky, GitHub, Instagram, LinkedIn, Facebook, TikTok, YouTube, WhatsApp, Threads) and functional glyphs (pin, external-link, map-layer, document-download, bike, scooter, console, compass, dashboard, stack). No emoji, anywhere. New icons should keep the hairline-weight, single-accent-dot aesthetic — never an icon-font or filled/flat-illustration style.
 
 ## Assets
 
@@ -109,6 +109,10 @@ Fraunces, Inter, and JetBrains Mono, loaded live from Google Fonts (`tokens/font
 
 - Slide geometry, footer, milestone rail, action list
 
+### Provisional email and newsletter
+
+- Email dispatch, cadence label, section label, item, item meta, tag, insight, CTA link
+
 Every status retains a written label; color never carries meaning alone.
 Component specimens live in `guidelines/components.html`.
 
@@ -130,6 +134,7 @@ components/project-detail.css → case studies and evidence
 components/documents.css      → reports, forms, agreements, proposals
 components/status.css         → status and KPI reporting
 components/presentations.css  → slide geometry and structures
+components/email.css          → newsletter and dispatch layout
 scripts/components.js         → progressive shared behavior
 assets/manifest.json          → versioned asset and identity inventory
 assets/consulting/            → consulting source masters

@@ -1,0 +1,56 @@
+/*
+  Email dispatch component. Single self-contained newsletter/HTML-email
+  layout for the bi-weekly dispatch. Table-unsafe CSS (flex, custom
+  properties) is fine here — this ships as a static HTML file rendered by
+  the reader's mail client preview or opened directly, not a table-based
+  transactional email.
+*/
+.email-body{margin:0;padding:0;background:var(--surface-page);font-family:var(--font-body);color:var(--text-primary);line-height:var(--leading-body)}
+.email{max-width:600px;margin:0 auto;background:var(--surface-page)}
+.email-header{padding:3rem 2rem 2rem;border-bottom:1px solid var(--border-default);text-align:center}
+.email-header h1{font:var(--weight-semibold) 2.2rem/1.1 var(--font-display);margin:0 0 .5rem;letter-spacing:-.02em}
+.email-cadence{
+  margin:0;color:var(--accent-sys);font:var(--weight-medium) var(--text-mono-sm)/1 var(--font-mono);
+  text-transform:uppercase;letter-spacing:var(--tracking-eyebrow);
+}
+.email-content{padding:2.5rem 2rem}
+.email-section{margin-bottom:2.6rem}
+.email-section:last-child{margin-bottom:0}
+.email-section-label{
+  margin:0 0 1rem;font:var(--text-mono-sm)/1 var(--font-mono);
+  text-transform:uppercase;letter-spacing:var(--tracking-label);opacity:.7;
+}
+.email-section-label[data-track="ops"]{color:var(--accent-ops)}
+.email-section-label[data-track="sys"]{color:var(--accent-sys)}
+.email-section h3{
+  display:flex;align-items:center;gap:.5rem;margin:0 0 1rem;
+  font:var(--weight-semibold) var(--text-h3)/1.2 var(--font-display);letter-spacing:-.02em;
+}
+.email-item{margin-bottom:1.5rem}
+.email-item h4{
+  display:flex;align-items:center;gap:.75rem;margin:0 0 .5rem;
+  font:var(--weight-semibold) 1.1rem/1.2 var(--font-display);letter-spacing:-.01em;
+}
+.email-item p{margin:0 0 .5rem;font-size:var(--text-body-sm);line-height:1.7}
+.email-item-meta{
+  display:flex;flex-wrap:wrap;gap:1rem;margin-top:.75rem;
+  color:var(--text-primary);opacity:.6;font:var(--text-mono-xs)/1 var(--font-mono);
+}
+.email-tag{
+  display:inline-block;padding:.35rem .75rem;border:1px solid var(--border-default);border-radius:var(--radius-sm);
+  font:var(--text-tag)/1 var(--font-mono);text-transform:uppercase;letter-spacing:.06em;opacity:.7;
+}
+.email-divider{height:1px;background:var(--border-default);margin:2rem 0}
+.email-insight{background:var(--panel);padding:1.5rem;border-left:2px solid var(--accent-ops);margin:1.5rem 0}
+.email-insight p{margin:0;color:var(--text-primary);font-size:var(--text-body-sm);font-style:italic}
+.email-cta-link{color:var(--accent-sys);text-decoration:none;border-bottom:1px solid var(--accent-sys);transition:opacity var(--motion-fast)}
+.email-cta-link:hover{opacity:.8}
+.email-icon{display:inline-block;width:24px;height:24px;vertical-align:middle;opacity:.8}
+.email-icon[data-size="section"]{width:20px;height:20px}
+.email-footer{padding:2rem;border-top:1px solid var(--border-default);text-align:center;font-size:var(--text-body-sm)}
+.email-footer p{margin:.5rem 0;opacity:.7}
+.email-footer-links{margin-top:1.5rem;opacity:.5;font-size:var(--text-mono-xs)}
+
+@media print{
+  .email{max-width:none}
+}

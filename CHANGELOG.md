@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.4.0 — 2026-08-20
+
+- Added the provisional email dispatch component (`components/email.css`) for the bi-weekly newsletter: header/cadence, section label, item, item meta, tag, insight, and CTA link, tokenized to the existing color/type/spacing system.
+- Added a matching specimen to `guidelines/components.html` (section 07).
+- Added four hairline-weight, single-accent-dot functional icons — `console`, `compass`, `dashboard`, `stack` — registered in `assets/manifest.json`.
+
 ## 1.3.0 — 2026-07-28
 
 - Added accessibility as a required acceptance layer for stable components and public artifacts.
