@@ -51,6 +51,8 @@ Sunny variant (bright, bold, amber/teal accents):
 - `components/data-gauge-component.html` — self-contained data gauge widget
 - `components/urban-strategist-header.html` — self-contained branded page header with map background
 - `components/wag-booking-banner.html` — self-contained Wag booking promo banner (dark, paper, sunny variants)
+- `components/training.css` — module cards, module icon gallery, and the facts crawl-strip
+- `templates/training-modules/` — training/course hub reference page (entry HTML + integration guide)
 - `scripts/components.js` — progressive SignalStrip, reveal, and theme behavior
 - `assets/manifest.json` — versioned asset and identity inventory
 - `assets/consulting/` — editable Urban Strategist source masters
