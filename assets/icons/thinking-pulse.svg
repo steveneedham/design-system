@@ -1,0 +1,5 @@
+<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="32" cy="32" r="4" fill="#E8A33D" class="core-glow"></circle>
+  <circle cx="32" cy="32" r="4" fill="none" stroke="#E8A33D" stroke-width="1.5" class="pulse-1"></circle>
+  <circle cx="32" cy="32" r="4" fill="none" stroke="#E8A33D" stroke-width="1.5" class="pulse-2" opacity="0.6"></circle>
+</svg>
