@@ -1,6 +1,6 @@
 {
   "name": "Steven Needham Design System",
-  "version": "1.3.0",
+  "version": "1.4.0",
   "themes": {
     "dark": {
       "stylesheet": "../styles.css",
@@ -48,12 +48,49 @@
   ],
   "functionalIcons": [
     "icons/bike.svg",
+    "icons/compass.svg",
+    "icons/console.svg",
+    "icons/dashboard.svg",
     "icons/document-download.svg",
     "icons/external-link.svg",
     "icons/map-layer.svg",
     "icons/network-hubs.svg",
     "icons/pin.svg",
-    "icons/scooter.svg"
+    "icons/scooter.svg",
+    "icons/stack.svg"
+  ],
+  "trainingIcons": [
+    "icons/module-equity-leaders.svg",
+    "icons/module-gbfs-data.svg",
+    "icons/module-311.svg",
+    "icons/module-ops-dashboards.svg",
+    "icons/incident.svg",
+    "icons/case-workers.svg",
+    "icons/training-overall.svg",
+    "icons/ops-leader.svg",
+    "icons/field-personnel.svg",
+    "icons/policy-design.svg",
+    "icons/spin-veo-access.svg",
+    "icons/city-operator-policy.svg",
+    "icons/ebike-riding.svg",
+    "icons/escooter-riding.svg",
+    "icons/access-programs-how.svg",
+    "icons/battery-charging.svg",
+    "icons/battery-swapping.svg",
+    "icons/van-wrecked.svg",
+    "icons/van-flipped.svg",
+    "icons/difficult-people.svg",
+    "icons/thinking-pulse.svg",
+    "icons/thinking-pulse-teal.svg",
+    "icons/crawl-movement.svg",
+    "icons/caution.svg",
+    "icons/broken.svg",
+    "icons/alert.svg",
+    "icons/311.svg",
+    "icons/211.svg",
+    "icons/report.svg",
+    "icons/SOP.svg",
+    "icons/help.svg"
   ],
   "socialIcons": [
     "icons/bluesky.svg",

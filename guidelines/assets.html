@@ -7,6 +7,7 @@
   <link rel="icon" href="../assets/icons/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="../styles.css">
   <link rel="stylesheet" href="../paper.css">
+  <link rel="stylesheet" href="../sunny.css">
   <style>
     .catalog{padding:clamp(6rem,12vw,9rem) var(--space-page-x) 5rem}
     .catalog-head{max-width:64rem;margin:0 auto 4rem}
@@ -17,13 +18,13 @@
     .catalog-kicker{text-transform:uppercase;color:var(--accent-ops)}
     .catalog h1{font-family:var(--font-display);font-weight:500;font-size:var(--text-hero);line-height:var(--leading-hero);margin:.8rem 0 1rem}
     .catalog-intro{max-width:58ch;color:var(--text-muted)}
-    .theme-switch{display:flex;gap:.75rem;margin-top:2rem}
-    .theme-switch button{
+    .theme-controls{display:flex;gap:.75rem;margin-top:2rem}
+    .theme-controls button{
       appearance:none;border:var(--border-width) solid var(--border-default);
       border-radius:var(--radius-sm);background:transparent;color:var(--text-primary);
       font:var(--text-mono-sm) var(--font-mono);padding:.55rem .8rem;cursor:pointer
     }
-    .theme-switch button[aria-pressed="true"]{border-color:var(--accent-ops);color:var(--accent-ops)}
+    .theme-controls button[aria-pressed="true"]{border-color:var(--accent-ops);color:var(--accent-ops)}
     .asset-section{max-width:64rem;margin:0 auto 4rem}
     .asset-section h2{font-family:var(--font-display);font-size:var(--text-h2);font-weight:500;margin:0 0 .5rem}
     .theme-note{color:var(--text-muted);margin:0 0 1.5rem}
@@ -45,11 +46,12 @@
   <main class="catalog">
     <header class="catalog-head">
       <div class="catalog-kicker">Foundation / Assets</div>
-      <h1>One visual language,<br><em>two surfaces.</em></h1>
-      <p class="catalog-intro">Canonical marks and functional glyphs for the dark portfolio surface and the warm paper surface. Paths shown below are stable repository paths. Usage must also meet the <a href="./accessibility.html">accessibility acceptance layer</a>: meaningful graphics need text alternatives; decorative marks use empty alternative text.</p>
-      <div class="theme-switch" aria-label="Preview surface">
+      <h1>One visual language,<br><em>three surfaces.</em></h1>
+      <p class="catalog-intro">Canonical marks and functional glyphs for the dark portfolio surface, warm paper surface, and bright sunny variant. Paths shown below are stable repository paths. Usage must also meet the <a href="./accessibility.html">accessibility acceptance layer</a>: meaningful graphics need text alternatives; decorative marks use empty alternative text.</p>
+      <div class="theme-controls" aria-label="Preview surface">
         <button type="button" data-theme-choice="dark" aria-pressed="true">Dark surface</button>
         <button type="button" data-theme-choice="paper" aria-pressed="false">Paper surface</button>
+        <button type="button" data-theme-choice="sunny" aria-pressed="false">Sunny surface</button>
       </div>
     </header>
 
@@ -98,6 +100,138 @@
     </section>
 
     <section class="asset-section">
+      <h2>Utility icons</h2>
+      <p class="theme-note">Functional glyphs for actions, indicators, and interactive states. Teal/amber/slate palette.</p>
+      <div class="asset-grid">
+        <figure class="asset icon"><img src="../assets/icons/clock.svg" alt="Clock icon"><figcaption><div class="asset-name">Clock</div><div class="asset-path">assets/icons/clock.svg</div></figcaption></figure>
+        <figure class="asset icon"><img src="../assets/icons/location.svg" alt="Location pin icon"><figcaption><div class="asset-name">Location</div><div class="asset-path">assets/icons/location.svg</div></figcaption></figure>
+        <figure class="asset icon"><img src="../assets/icons/search.svg" alt="Search icon"><figcaption><div class="asset-name">Search</div><div class="asset-path">assets/icons/search.svg</div></figcaption></figure>
+        <figure class="asset icon"><img src="../assets/icons/history.svg" alt="History icon"><figcaption><div class="asset-name">History</div><div class="asset-path">assets/icons/history.svg</div></figcaption></figure>
+        <figure class="asset icon"><img src="../assets/icons/user-direction.svg" alt="User direction icon"><figcaption><div class="asset-name">User direction</div><div class="asset-path">assets/icons/user-direction.svg</div></figcaption></figure>
+        <figure class="asset icon"><img src="../assets/icons/gauge.svg" alt="Gauge icon"><figcaption><div class="asset-name">Gauge</div><div class="asset-path">assets/icons/gauge.svg</div></figcaption></figure>
+        <figure class="asset icon"><img src="../assets/icons/lightning-check.svg" alt="Lightning check icon"><figcaption><div class="asset-name">Lightning check</div><div class="asset-path">assets/icons/lightning-check.svg</div></figcaption></figure>
+        <figure class="asset icon"><img src="../assets/icons/document-check.svg" alt="Document check icon"><figcaption><div class="asset-name">Document check</div><div class="asset-path">assets/icons/document-check.svg</div></figcaption></figure>
+      </div>
+    </section>
+
+    <section class="asset-section">
+      <h2>Consulting services</h2>
+      <p class="theme-note">Icons representing strategic consulting engagements and service offerings.</p>
+      <div class="asset-grid">
+        <figure class="asset icon"><img src="../assets/icons/01-hourly-consulting.svg" alt="Hourly consulting icon"><figcaption><div class="asset-name">Hourly consulting</div><div class="asset-path">assets/icons/01-hourly-consulting.svg</div></figcaption></figure>
+        <figure class="asset icon"><img src="../assets/icons/02-large-event-readiness.svg" alt="Large event readiness icon"><figcaption><div class="asset-name">Large event readiness</div><div class="asset-path">assets/icons/02-large-event-readiness.svg</div></figcaption></figure>
+        <figure class="asset icon"><img src="../assets/icons/03-gtm-competitive-analysis.svg" alt="GTM competitive analysis icon"><figcaption><div class="asset-name">GTM competitive analysis</div><div class="asset-path">assets/icons/03-gtm-competitive-analysis.svg</div></figcaption></figure>
+        <figure class="asset icon"><img src="../assets/icons/04-fractional-ops-retainer.svg" alt="Fractional ops retainer icon"><figcaption><div class="asset-name">Fractional ops retainer</div><div class="asset-path">assets/icons/04-fractional-ops-retainer.svg</div></figcaption></figure>
+        <figure class="asset icon"><img src="../assets/icons/05-operator-performance-coaching.svg" alt="Operator performance coaching icon"><figcaption><div class="asset-name">Operator performance coaching</div><div class="asset-path">assets/icons/05-operator-performance-coaching.svg</div></figcaption></figure>
+        <figure class="asset icon"><img src="../assets/icons/06-digital-readiness-assessment.svg" alt="Digital readiness assessment icon"><figcaption><div class="asset-name">Digital readiness assessment</div><div class="asset-path">assets/icons/06-digital-readiness-assessment.svg</div></figcaption></figure>
+        <figure class="asset icon"><img src="../assets/icons/07-quick-wins-audit.svg" alt="Quick wins audit icon"><figcaption><div class="asset-name">Quick wins audit</div><div class="asset-path">assets/icons/07-quick-wins-audit.svg</div></figcaption></figure>
+        <figure class="asset icon"><img src="../assets/icons/08-sop-documentation-overhaul.svg" alt="SOP documentation overhaul icon"><figcaption><div class="asset-name">SOP documentation overhaul</div><div class="asset-path">assets/icons/08-sop-documentation-overhaul.svg</div></figcaption></figure>
+        <figure class="asset icon"><img src="../assets/icons/09-automation-data-pipeline.svg" alt="Automation data pipeline icon"><figcaption><div class="asset-name">Automation data pipeline</div><div class="asset-path">assets/icons/09-automation-data-pipeline.svg</div></figcaption></figure>
+        <figure class="asset icon"><img src="../assets/icons/10-fleet-ops-dashboard.svg" alt="Fleet ops dashboard icon"><figcaption><div class="asset-name">Fleet ops dashboard</div><div class="asset-path">assets/icons/10-fleet-ops-dashboard.svg</div></figcaption></figure>
+        <figure class="asset icon"><img src="../assets/icons/11-civic-tech-mapping.svg" alt="Civic tech mapping icon"><figcaption><div class="asset-name">Civic tech mapping</div><div class="asset-path">assets/icons/11-civic-tech-mapping.svg</div></figcaption></figure>
+        <figure class="asset icon"><img src="../assets/icons/12-take-me-out-to-lunch.svg" alt="Take me out to lunch icon"><figcaption><div class="asset-name">Take me out to lunch</div><div class="asset-path">assets/icons/12-take-me-out-to-lunch.svg</div></figcaption></figure>
+        <figure class="asset icon"><img src="../assets/icons/13-permit-sla-compliance-audit.svg" alt="Permit SLA compliance audit icon"><figcaption><div class="asset-name">Permit SLA compliance audit</div><div class="asset-path">assets/icons/13-permit-sla-compliance-audit.svg</div></figcaption></figure>
+        <figure class="asset icon"><img src="../assets/icons/14-vehicle-demand-performance.svg" alt="Vehicle demand performance icon"><figcaption><div class="asset-name">Vehicle demand performance</div><div class="asset-path">assets/icons/14-vehicle-demand-performance.svg</div></figcaption></figure>
+      </div>
+    </section>
+
+    <section class="asset-section">
+      <h2>Communication platforms</h2>
+      <p class="theme-note">Icons for common business communication and scheduling tools.</p>
+      <div class="asset-grid">
+        <figure class="asset icon"><img src="../assets/icons/15-calendly.svg" alt="Calendly icon"><figcaption><div class="asset-name">Calendly</div><div class="asset-path">assets/icons/15-calendly.svg</div></figcaption></figure>
+        <figure class="asset icon"><img src="../assets/icons/16-google-meet.svg" alt="Google Meet icon"><figcaption><div class="asset-name">Google Meet</div><div class="asset-path">assets/icons/16-google-meet.svg</div></figcaption></figure>
+        <figure class="asset icon"><img src="../assets/icons/17-zoom.svg" alt="Zoom icon"><figcaption><div class="asset-name">Zoom</div><div class="asset-path">assets/icons/17-zoom.svg</div></figcaption></figure>
+        <figure class="asset icon"><img src="../assets/icons/18-teams.svg" alt="Microsoft Teams icon"><figcaption><div class="asset-name">Microsoft Teams</div><div class="asset-path">assets/icons/18-teams.svg</div></figcaption></figure>
+        <figure class="asset icon"><img src="../assets/icons/19-webex.svg" alt="Webex icon"><figcaption><div class="asset-name">Webex</div><div class="asset-path">assets/icons/19-webex.svg</div></figcaption></figure>
+        <figure class="asset icon"><img src="../assets/icons/20-telephone.svg" alt="Telephone icon"><figcaption><div class="asset-name">Telephone</div><div class="asset-path">assets/icons/20-telephone.svg</div></figcaption></figure>
+        <figure class="asset icon"><img src="../assets/icons/21-email.svg" alt="Email icon"><figcaption><div class="asset-name">Email</div><div class="asset-path">assets/icons/21-email.svg</div></figcaption></figure>
+        <figure class="asset icon"><img src="../assets/icons/28-setmore.svg" alt="Setmore scheduling icon"><figcaption><div class="asset-name">Setmore</div><div class="asset-path">assets/icons/28-setmore.svg</div></figcaption></figure>
+      </div>
+    </section>
+
+    <section class="asset-section">
+      <h2>Payment methods</h2>
+      <p class="theme-note">Icons for financial transactions and digital payment services.</p>
+      <div class="asset-grid">
+        <figure class="asset icon"><img src="../assets/icons/22-venmo.svg" alt="Venmo icon"><figcaption><div class="asset-name">Venmo</div><div class="asset-path">assets/icons/22-venmo.svg</div></figcaption></figure>
+        <figure class="asset icon"><img src="../assets/icons/23-paypal.svg" alt="PayPal icon"><figcaption><div class="asset-name">PayPal</div><div class="asset-path">assets/icons/23-paypal.svg</div></figcaption></figure>
+        <figure class="asset icon"><img src="../assets/icons/24-wire-transfer.svg" alt="Wire transfer icon"><figcaption><div class="asset-name">Wire transfer</div><div class="asset-path">assets/icons/24-wire-transfer.svg</div></figcaption></figure>
+        <figure class="asset icon"><img src="../assets/icons/25-cash-app.svg" alt="Cash App icon"><figcaption><div class="asset-name">Cash App</div><div class="asset-path">assets/icons/25-cash-app.svg</div></figcaption></figure>
+        <figure class="asset icon"><img src="../assets/icons/26-buy-me-a-coffee.svg" alt="Buy Me a Coffee icon"><figcaption><div class="asset-name">Buy Me a Coffee</div><div class="asset-path">assets/icons/26-buy-me-a-coffee.svg</div></figcaption></figure>
+        <figure class="asset icon"><img src="../assets/icons/27-ko-fi.svg" alt="Ko-fi icon"><figcaption><div class="asset-name">Ko-fi</div><div class="asset-path">assets/icons/27-ko-fi.svg</div></figcaption></figure>
+      </div>
+    </section>
+
+    <section class="asset-section">
+      <h2>Geographic / Regional</h2>
+      <p class="theme-note">Ohio state outline, traced from real geographic boundary data, available as outline and filled variants across seven palettes: core surfaces (dark, paper), design system accents (amber, teal), and civic/institutional colors (OSU scarlet, OSU grey, Columbus civic blue).</p>
+      <div class="asset-grid">
+        <figure class="asset icon"><img src="../assets/icons/29-ohio-outline-dark.svg" alt="Ohio state outline, dark"><figcaption><div class="asset-name">Ohio / outline / dark</div><div class="asset-path">assets/icons/29-ohio-outline-dark.svg</div></figcaption></figure>
+        <figure class="asset icon"><img src="../assets/icons/29-ohio-fill-dark.svg" alt="Ohio state filled, dark"><figcaption><div class="asset-name">Ohio / fill / dark</div><div class="asset-path">assets/icons/29-ohio-fill-dark.svg</div></figcaption></figure>
+        <figure class="asset icon"><img src="../assets/icons/29-ohio-outline-paper.svg" alt="Ohio state outline, paper"><figcaption><div class="asset-name">Ohio / outline / paper</div><div class="asset-path">assets/icons/29-ohio-outline-paper.svg</div></figcaption></figure>
+        <figure class="asset icon"><img src="../assets/icons/29-ohio-fill-paper.svg" alt="Ohio state filled, paper"><figcaption><div class="asset-name">Ohio / fill / paper</div><div class="asset-path">assets/icons/29-ohio-fill-paper.svg</div></figcaption></figure>
+        <figure class="asset icon"><img src="../assets/icons/29-ohio-outline-amber.svg" alt="Ohio state outline, amber"><figcaption><div class="asset-name">Ohio / outline / amber</div><div class="asset-path">assets/icons/29-ohio-outline-amber.svg</div></figcaption></figure>
+        <figure class="asset icon"><img src="../assets/icons/29-ohio-fill-amber.svg" alt="Ohio state filled, amber"><figcaption><div class="asset-name">Ohio / fill / amber</div><div class="asset-path">assets/icons/29-ohio-fill-amber.svg</div></figcaption></figure>
+        <figure class="asset icon"><img src="../assets/icons/29-ohio-outline-teal.svg" alt="Ohio state outline, teal"><figcaption><div class="asset-name">Ohio / outline / teal</div><div class="asset-path">assets/icons/29-ohio-outline-teal.svg</div></figcaption></figure>
+        <figure class="asset icon"><img src="../assets/icons/29-ohio-fill-teal.svg" alt="Ohio state filled, teal"><figcaption><div class="asset-name">Ohio / fill / teal</div><div class="asset-path">assets/icons/29-ohio-fill-teal.svg</div></figcaption></figure>
+        <figure class="asset icon"><img src="../assets/icons/29-ohio-outline-osu-scarlet.svg" alt="Ohio state outline, OSU scarlet"><figcaption><div class="asset-name">Ohio / outline / OSU scarlet</div><div class="asset-path">assets/icons/29-ohio-outline-osu-scarlet.svg</div></figcaption></figure>
+        <figure class="asset icon"><img src="../assets/icons/29-ohio-fill-osu-scarlet.svg" alt="Ohio state filled, OSU scarlet"><figcaption><div class="asset-name">Ohio / fill / OSU scarlet</div><div class="asset-path">assets/icons/29-ohio-fill-osu-scarlet.svg</div></figcaption></figure>
+        <figure class="asset icon"><img src="../assets/icons/29-ohio-outline-osu-grey.svg" alt="Ohio state outline, OSU grey"><figcaption><div class="asset-name">Ohio / outline / OSU grey</div><div class="asset-path">assets/icons/29-ohio-outline-osu-grey.svg</div></figcaption></figure>
+        <figure class="asset icon"><img src="../assets/icons/29-ohio-fill-osu-grey.svg" alt="Ohio state filled, OSU grey"><figcaption><div class="asset-name">Ohio / fill / OSU grey</div><div class="asset-path">assets/icons/29-ohio-fill-osu-grey.svg</div></figcaption></figure>
+        <figure class="asset icon"><img src="../assets/icons/29-ohio-outline-columbus-blue.svg" alt="Ohio state outline, Columbus civic blue"><figcaption><div class="asset-name">Ohio / outline / Columbus blue</div><div class="asset-path">assets/icons/29-ohio-outline-columbus-blue.svg</div></figcaption></figure>
+        <figure class="asset icon"><img src="../assets/icons/29-ohio-fill-columbus-blue.svg" alt="Ohio state filled, Columbus civic blue"><figcaption><div class="asset-name">Ohio / fill / Columbus blue</div><div class="asset-path">assets/icons/29-ohio-fill-columbus-blue.svg</div></figcaption></figure>
+      </div>
+    </section>
+
+    <section class="asset-section">
+      <h2>Research & systems (sunny theme)</h2>
+      <p class="theme-note">Purpose-built icons for research, data collection, and labs. Displayed in sunny theme variant with mixed amber and teal accents.</p>
+      <div class="asset-grid">
+        <figure class="asset"><img src="../assets/field-report-icon-sunny.svg" alt="Field report research icon"><figcaption><div class="asset-name">Field report</div><div class="asset-path">assets/field-report-icon-sunny.svg</div></figcaption></figure>
+        <figure class="asset"><img src="../assets/urban-transit-labs-icons-sunny.svg" alt="Urban Transit Labs beaker and test tube icons"><figcaption><div class="asset-name">Urban Transit Labs icons</div><div class="asset-path">assets/urban-transit-labs-icons-sunny.svg</div></figcaption></figure>
+      </div>
+    </section>
+
+    <section class="asset-section" id="training">
+      <h2>Training modules</h2>
+      <p class="theme-note">Course badges and supporting glyphs for the training-module hub (<a href="./components.html#training">component specimen</a>). These use a filled, rounded ink-tile style with a single accent color — a deliberate exception scoped to training-module cards and badges, kept separate from the hairline single-accent-dot rule the rest of the icon system follows.</p>
+      <div class="asset-grid">
+        <figure class="asset icon"><img src="../assets/icons/module-equity-leaders.svg" alt="Equity-First Micromobility Field Leaders module icon"><figcaption><div class="asset-name">Field leaders</div><div class="asset-path">assets/icons/module-equity-leaders.svg</div></figcaption></figure>
+        <figure class="asset icon"><img src="../assets/icons/module-gbfs-data.svg" alt="Understanding GBFS Data module icon"><figcaption><div class="asset-name">GBFS data</div><div class="asset-path">assets/icons/module-gbfs-data.svg</div></figcaption></figure>
+        <figure class="asset icon"><img src="../assets/icons/module-311.svg" alt="The 411 on 311s module icon"><figcaption><div class="asset-name">311 systems</div><div class="asset-path">assets/icons/module-311.svg</div></figcaption></figure>
+        <figure class="asset icon"><img src="../assets/icons/module-ops-dashboards.svg" alt="Building Ops Dashboards module icon"><figcaption><div class="asset-name">Ops dashboards</div><div class="asset-path">assets/icons/module-ops-dashboards.svg</div></figcaption></figure>
+        <figure class="asset icon"><img src="../assets/icons/incident.svg" alt="Incident response module icon"><figcaption><div class="asset-name">Incident response</div><div class="asset-path">assets/icons/incident.svg</div></figcaption></figure>
+        <figure class="asset icon"><img src="../assets/icons/case-workers.svg" alt="Case managers access-program module icon"><figcaption><div class="asset-name">Case workers</div><div class="asset-path">assets/icons/case-workers.svg</div></figcaption></figure>
+        <figure class="asset icon"><img src="../assets/icons/training-overall.svg" alt="Training overall icon"><figcaption><div class="asset-name">Training overall</div><div class="asset-path">assets/icons/training-overall.svg</div></figcaption></figure>
+        <figure class="asset icon"><img src="../assets/icons/ops-leader.svg" alt="Ops leader icon"><figcaption><div class="asset-name">Ops leader</div><div class="asset-path">assets/icons/ops-leader.svg</div></figcaption></figure>
+        <figure class="asset icon"><img src="../assets/icons/field-personnel.svg" alt="Field personnel icon"><figcaption><div class="asset-name">Field personnel</div><div class="asset-path">assets/icons/field-personnel.svg</div></figcaption></figure>
+        <figure class="asset icon"><img src="../assets/icons/policy-design.svg" alt="Policy design icon"><figcaption><div class="asset-name">Policy design</div><div class="asset-path">assets/icons/policy-design.svg</div></figcaption></figure>
+        <figure class="asset icon"><img src="../assets/icons/spin-veo-access.svg" alt="Spin and Veo access icon"><figcaption><div class="asset-name">Spin &amp; Veo access</div><div class="asset-path">assets/icons/spin-veo-access.svg</div></figcaption></figure>
+        <figure class="asset icon"><img src="../assets/icons/city-operator-policy.svg" alt="City and operator policy icon"><figcaption><div class="asset-name">City / operator policy</div><div class="asset-path">assets/icons/city-operator-policy.svg</div></figcaption></figure>
+        <figure class="asset icon"><img src="../assets/icons/ebike-riding.svg" alt="E-bike riding icon"><figcaption><div class="asset-name">E-bike riding</div><div class="asset-path">assets/icons/ebike-riding.svg</div></figcaption></figure>
+        <figure class="asset icon"><img src="../assets/icons/escooter-riding.svg" alt="E-scooter riding icon"><figcaption><div class="asset-name">E-scooter riding</div><div class="asset-path">assets/icons/escooter-riding.svg</div></figcaption></figure>
+        <figure class="asset icon"><img src="../assets/icons/access-programs-how.svg" alt="How access programs work icon"><figcaption><div class="asset-name">Access programs</div><div class="asset-path">assets/icons/access-programs-how.svg</div></figcaption></figure>
+        <figure class="asset icon"><img src="../assets/icons/battery-charging.svg" alt="Battery charging icon"><figcaption><div class="asset-name">Battery charging</div><div class="asset-path">assets/icons/battery-charging.svg</div></figcaption></figure>
+        <figure class="asset icon"><img src="../assets/icons/battery-swapping.svg" alt="Battery swapping icon"><figcaption><div class="asset-name">Battery swapping</div><div class="asset-path">assets/icons/battery-swapping.svg</div></figcaption></figure>
+        <figure class="asset icon"><img src="../assets/icons/van-wrecked.svg" alt="Wrecked van icon"><figcaption><div class="asset-name">Van wrecked</div><div class="asset-path">assets/icons/van-wrecked.svg</div></figcaption></figure>
+        <figure class="asset icon"><img src="../assets/icons/van-flipped.svg" alt="Flipped van icon"><figcaption><div class="asset-name">Van flipped</div><div class="asset-path">assets/icons/van-flipped.svg</div></figcaption></figure>
+        <figure class="asset icon"><img src="../assets/icons/difficult-people.svg" alt="Difficult people / interpersonal conflict icon"><figcaption><div class="asset-name">Difficult people</div><div class="asset-path">assets/icons/difficult-people.svg</div></figcaption></figure>
+        <figure class="asset icon"><img src="../assets/icons/thinking-pulse.svg" alt="Thinking pulse icon"><figcaption><div class="asset-name">Thinking pulse</div><div class="asset-path">assets/icons/thinking-pulse.svg</div></figcaption></figure>
+        <figure class="asset icon"><img src="../assets/icons/thinking-pulse-teal.svg" alt="Thinking pulse icon, teal"><figcaption><div class="asset-name">Thinking pulse / teal</div><div class="asset-path">assets/icons/thinking-pulse-teal.svg</div></figcaption></figure>
+        <figure class="asset icon"><img src="../assets/icons/crawl-movement.svg" alt="Crawl movement icon"><figcaption><div class="asset-name">Crawl movement</div><div class="asset-path">assets/icons/crawl-movement.svg</div></figcaption></figure>
+        <figure class="asset icon"><img src="../assets/icons/caution.svg" alt="Caution icon"><figcaption><div class="asset-name">Caution</div><div class="asset-path">assets/icons/caution.svg</div></figcaption></figure>
+        <figure class="asset icon"><img src="../assets/icons/broken.svg" alt="Broken icon"><figcaption><div class="asset-name">Broken</div><div class="asset-path">assets/icons/broken.svg</div></figcaption></figure>
+        <figure class="asset icon"><img src="../assets/icons/alert.svg" alt="Alert icon"><figcaption><div class="asset-name">Alert</div><div class="asset-path">assets/icons/alert.svg</div></figcaption></figure>
+        <figure class="asset icon"><img src="../assets/icons/311.svg" alt="311 icon"><figcaption><div class="asset-name">311</div><div class="asset-path">assets/icons/311.svg</div></figcaption></figure>
+        <figure class="asset icon"><img src="../assets/icons/211.svg" alt="211 icon"><figcaption><div class="asset-name">211</div><div class="asset-path">assets/icons/211.svg</div></figcaption></figure>
+        <figure class="asset icon"><img src="../assets/icons/report.svg" alt="Report icon"><figcaption><div class="asset-name">Report</div><div class="asset-path">assets/icons/report.svg</div></figcaption></figure>
+        <figure class="asset icon"><img src="../assets/icons/SOP.svg" alt="SOP icon"><figcaption><div class="asset-name">SOP</div><div class="asset-path">assets/icons/SOP.svg</div></figcaption></figure>
+        <figure class="asset icon"><img src="../assets/icons/help.svg" alt="Help icon"><figcaption><div class="asset-name">Help</div><div class="asset-path">assets/icons/help.svg</div></figcaption></figure>
+      </div>
+    </section>
+
+    <section class="asset-section">
       <h2>Editorial photography</h2>
       <p class="theme-note">Use documentary images as evidence of place and operating context. Treatments stay restrained, brand-neutral, and legible without relying on a decorative overlay.</p>
       <div class="asset-grid">
@@ -115,5 +249,17 @@
     </section>
   </main>
   <script src="../scripts/components.js"></script>
+  <script>
+    // Theme switcher for asset catalog
+    const themeButtons = document.querySelectorAll('.theme-controls button');
+    themeButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        const theme = button.dataset.themeChoice;
+        themeButtons.forEach(b => b.setAttribute('aria-pressed', 'false'));
+        button.setAttribute('aria-pressed', 'true');
+        document.documentElement.setAttribute('data-theme', theme);
+      });
+    });
+  </script>
 </body>
 </html>

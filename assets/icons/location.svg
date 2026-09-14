@@ -1,0 +1,13 @@
+<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+  <!-- Pin outline -->
+  <path d="M 32 8 C 22 8 14 16 14 26 C 14 38 32 56 32 56 C 32 56 50 38 50 26 C 50 16 42 8 32 8 Z" fill="none" stroke="#FFC857" stroke-width="3" stroke-linejoin="round"/>
+  <!-- Pin dot -->
+  <circle cx="32" cy="26" r="5" fill="#FFC857"/>
+  <!-- Bottom circles -->
+  <circle cx="16" cy="54" r="4" fill="none" stroke="#4DD0E1" stroke-width="2.5"/>
+  <circle cx="48" cy="54" r="4" fill="none" stroke="#4DD0E1" stroke-width="2.5"/>
+  <!-- Dashed line connecting circles -->
+  <g stroke="#718096" stroke-width="2" stroke-dasharray="3,2" fill="none">
+    <line x1="16" y1="54" x2="48" y2="54"/>
+  </g>
+</svg>
